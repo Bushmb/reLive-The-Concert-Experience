@@ -1,0 +1,33 @@
+<% include partials/head.html %>
+
+  <body>
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="text-center">
+        <h1 class=" fa fa-user"> Profile</h1><br>
+       <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
+       <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
+       <hr>
+       <div class="jumbotron">
+         <% if (user.local.email != null) { %>
+           <img src="https://avatars.io/gravatar/<%= user.local.email %>/140" class="img-circle"><br>
+           <strong>email</strong>: <%= user.local.email %><br>
+         <% } %>
+         
+         <% if (user.spotify.id != null) { %>
+          <i class="fa fa-spotify fa-5x"></i><br>
+           <h2> Spotify</h2><br>
+           <img src="<%= user.spotify.photo %>" class="img-circle"><br>
+           <!-- <%= user.spotify.photo %> -->
+          <!-- <strong>id</strong>: <%= user.spotify.id %><br> -->
+          <!-- <strong>token</strong>: <%= user.spotify.token %><br> -->
+          <strong>email</strong>: <%= user.spotify.email %><br>
+          <strong>name</strong>: <%= user.spotify.name %>
+         <% } %>
+
+          <!-- adding content to the app -->
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

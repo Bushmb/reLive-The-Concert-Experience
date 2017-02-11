@@ -1,0 +1,18 @@
+<% include partials/head.html %>
+
+<body>
+
+<strong>Search Results</strong>
+
+<ul class="artist-results">
+	<% results.forEach(function(msgObj){ %>
+
+		<li><img src="<%= msgObj.image %>"><input type="button" class="setListApi" value="<%= msgObj.artistName %>" data-mbid="<%= msgObj.artistMbid %>"/></li>
+		
+	<% }) %>
+</ul>
+
+<%include partials/footer.html %>
+
+</body>
+</html>

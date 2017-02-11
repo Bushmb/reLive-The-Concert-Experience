@@ -1,0 +1,13 @@
+<strong>Search Results</strong>
+<ul class="setlist">
+ 	<% results.forEach(function(msgObj){ %>
+ 			<% if (msgObj.songs) { %>
+ 			<h3><%= msgObj.artistName %> - <%= msgObj.eventDate %></h3>
+ 			<h4><%= msgObj.venueName %></h4>
+ 				<% for (var i = 0; i < msgObj.songs.length; i++) { %>
+ 					<li ><%= msgObj.songs[i] %> <button class="btn" type="button" data-artist="<%= msgObj.artistName %>" data-song="<%= msgObj.songs[i] %>">Play Song</button> </li>
+ 				<% } %>
+ 			<!-- <button type"button" id="play_setlist">Play Setlist</button> -->
+ 			<% } %>
+  	<% }) %>
+</ul>
