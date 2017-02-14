@@ -1,0 +1,299 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web);
+
+#cbsnet_audioplayer {
+	background:#ed8484;
+	padding:8px;
+	position:relative;
+	margin:0 auto;
+	direction:ltr;
+	font-family:Titillium Web;
+	max-width:400px;
+}
+
+#cbsnet_audioplayer div {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;  
+	overflow:visible;  
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-image {
+	display: block;
+	background-size:cover;
+	position:absolute;
+	width:96%;
+	min-height:160px;
+	float: left;
+	overflow: hidden;
+	-webkit-border-radius: 4px;
+    	-moz-border-radius: 4px;
+    	border-radius: 4px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-image-clear {
+	height:5px
+
+}
+#cbsnet_audioplayer .amazingaudioplayer-progressback {
+    float: left;
+    height: 20px;
+    position: relative;
+    width: 100%;
+	top:25px;
+	margin-bottom:5px;
+}
+
+
+#cbsnet_audioplayer .amazingaudioplayer-text {
+	display: block;
+    overflow: hidden;
+	text-align:center;
+	position:relative;
+	padding-bottom:5px;
+	height:70px
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-text-clear {
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-title {
+	display: block;
+	color: #eee;
+	font-family: "Raleway",Arial,sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-title-clear {
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-info {
+	display: block;
+	color: #ddd;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-style: italic;
+	margin-top: 2px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-info-clear {
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-bar {
+	position: relative;
+	width:100%;
+	top:10px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-bar-buttons-clear {
+	clear: both;
+	height:25px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-bar-clear {
+	clear: both;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-bar-title {
+	position: relative;
+	float: left;
+	color: #eee;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 0 8px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-playpause {
+	position: absolute;
+	top: 0;
+	left: 45px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-play {
+	background-image:url(play.png);
+	background-position:left top;
+	position: relative;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-pause {
+	background-image:url(play.png);
+	background-position:right top;
+	position: relative;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-stop {
+	position: relative;
+	float: left;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-prev {
+	position: absolute;
+	top: 9px;
+	left: 0px;
+	background-image:url(prev.png);
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-next {
+	position: absolute;
+	top: 9px;
+	left: 105px;
+	background-image:url(next.png);
+	background-position:right top;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-loop {
+	float: right;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-progress {
+	width:100%;
+	background-color: #d96b6b;
+	-webkit-box-shadow: inset 1px 2px 4px rgba( 0, 0, 0, 0.25 );
+	-moz-box-shadow:inset 1px 2px 4px rgba( 0, 0, 0, 0.25 );
+	box-shadow:inset 1px 2px 4px rgba( 0, 0, 0, 0.25 );
+	margin: 6px 0px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-progress-loaded {
+	background-color: #444;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-progress-played {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	height:8px;
+	background-color: #e6e3da;
+	background-image: -ms-linear-gradient(top, #fcfcfc 0%, #e6e3da 100%);
+	background-image: -moz-linear-gradient(top, #fcfcfc 0%, #e6e3da 100%);
+	background-image: -o-linear-gradient(top, #fcfcfc 0%, #e6e3da 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fcfcfc), color-stop(1, #e6e3da));
+	background-image: -webkit-linear-gradient(top, #fcfcfc 0%, #e6e3da 100%); 
+	background-image: linear-gradient(to bottom, #fcfcfc 0%, #e6e3da 100%);
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-time {
+	position: relative;
+	float: right;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	text-shadow: 1px 1px 0 #000;
+	line-height: 24px;
+	margin: 0 4px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-volume {
+	background-image:url(volume.png);
+	background-repeat: no-repeat;
+	position: relative;
+	float:right;
+	top:15px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-volume-bar {
+	background-color: #fefefe;
+	border: 1px solid #222;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-volume-bar-adjust {
+	background-color: #ffcaca;
+	-webkit-box-shadow: -1px -1px 0 rgba( 0, 0, 0, 0.5 ), 1px 1px 0 rgba( 255, 255, 255, 0.1 );
+	-moz-box-shadow: -1px -1px 0 rgba( 0, 0, 0, 0.5 ), 1px 1px 0 rgba( 255, 255, 255, 0.1 );
+	box-shadow: -1px -1px 0 rgba( 0, 0, 0, 0.5 ), 1px 1px 0 rgba( 255, 255, 255, 0.1 );
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-volume-bar-adjust-active {
+	background-color: #e05757;
+	-webkit-box-shadow: inset 0 0 5px rgba( 255, 255, 255, 0.5 );
+	-moz-box-shadow: inset 0 0 5px rgba( 255, 255, 255, 0.5 );
+	box-shadow: inset 0 0 5px rgba( 255, 255, 255, 0.5 );
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-tracklist {
+	display: block;
+	position: relative;
+	background:#fafafa
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-tracklist-container {
+	display: block;
+	position: relative;
+	margin: 4px;
+	padding: 12px 0px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-tracks-wrapper {
+	position: relative;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-tracks {
+	position: relative;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	left:0;
+	right:0;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-track-item {
+	position: relative;
+	cursor: pointer;
+	color: #999;
+	font-family: 'Titillium Web', Arial, sans-serif;
+	font-size: 12px;
+	line-height: 26px;
+	margin: 0;
+	padding: 0;
+	text-align:left;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-track-item-active {
+	cursor: pointer;
+	color: #ed8484;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-track-item a {
+	color: #999;
+    text-decoration: none;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-track-item-active a {
+	color: #ed8484;
+    text-decoration: none;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-track-item-duration {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-tracklist-arrow-prev {
+	position: absolute;
+	top: 2px;
+	right: 24px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-tracklist-arrow-next {
+	position: absolute;
+	top: 2px;
+	right: 6px;
+}
+
+#cbsnet_audioplayer .amazingaudioplayer-tracklist-clear {
+	clear: both;
+}
+
+
+
