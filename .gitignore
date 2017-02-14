@@ -3,3 +3,4 @@ npm-debug.log
 examples/
 .env
 config/auth.js
+/examples

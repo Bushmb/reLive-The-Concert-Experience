@@ -14,7 +14,9 @@ var userSchema = mongoose.Schema({
     name: String,
     photo: String,
     listeningPlaylistId: String,
+    savedPlaylists: []
   }
+    
 });
 
 userSchema.methods.generateHash = function(password) {

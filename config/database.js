@@ -1,3 +1,3 @@
 module.exports = {
-  url: 'mongodb://localhost/<testauthdb2></testauthdb2>',
+  url: 'mongodb://localhost/userdatabase_v1',
 };

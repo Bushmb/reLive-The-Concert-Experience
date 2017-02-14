@@ -18,7 +18,8 @@
            <h2> Spotify</h2><br>
            <img src="<%= user.spotify.photo %>" class="img-circle"><br>
            <!-- <%= user.spotify.photo %> -->
-          <!-- <strong>id</strong>: <%= user.spotify.id %><br> -->
+          <strong>SPOTIFY id</strong>: <%= user.spotify.id %><br>
+          <strong>LOCAL ID</strong>: <%= user.id %>
           <!-- <strong>token</strong>: <%= user.spotify.token %><br> -->
           <strong>email</strong>: <%= user.spotify.email %><br>
           <strong>name</strong>: <%= user.spotify.name %>
@@ -28,8 +29,9 @@
          <div>
          <input id="search" type="search" placeholder="Band Name" />
          </div>
+         <div id="photo-results"></div>
          <div id="results"></div>
-         <div id="playlist-results"></div>
+         
 
 
         </div>

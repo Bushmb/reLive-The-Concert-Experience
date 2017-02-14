@@ -6,6 +6,8 @@ var async = require('async');
 
 var User = require('../models/user');
 
+
+
 /* GET users listing. */
 // router.get('/:name', function(req, res, next) {
 ///////// router.post('/', function(req, res, next)	{
@@ -24,8 +26,6 @@ router.get('/:name', function(req, res, next)	{
 	if(name == null) {
 		name = req.body.name;
 	}
-
-
 	// const url = "http://api.setlist.fm/rest/0.1/search/artists.json?artistName=" + name;
 	const url = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + name + "&api_key=" + lastfm_api + "&format=json";
 	const request = require("request");
@@ -70,21 +70,36 @@ router.get('/:name', function(req, res, next)	{
 router.get('/setlists/:mbid', function(req, res, next)  {
 // exports.search_setlists = function(req, res) {
 
+	//console.log("REQUEST", req);
+
 	const results = [];
 	const songList = [];
 	const mbid = req.params["mbid"];
+
+	console.log("MBID!!", mbid);
+
 	if(mbid === null) {
 		mbid = req.body.mbid;
 	}
+
 	const url = "http://api.setlist.fm/rest/0.1/search/setlists.json?artistMbid=" + mbid;
+	console.log("URLLLL", url);
+
 	const request = require("request");
 	const async = require("async");
 	request(url, function(error, response, body) {
+
+		//console.log("SETLIST BODY", body);
 		
 		if(!body.includes('not found')) {
 			const data = JSON.parse(body);
 
+			console.log("IN FIRST SETLIST FUNCTION!!");
+			//console.log("DATA", data);
+
 			const setlist = data.setlists.setlist;
+
+			//console.log("SETLIST STUFFS", setlist);
 
 			async.eachSeries(setlist, function(setlist, callback) {
 				const id = setlist["@id"];
@@ -97,11 +112,19 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 				//console.log('---------------------')
 				let songs
 
+
+// NEEEED TO FIX THIS FOR RETURNS WITH EMPTY SETS OR "@WITH", LIKE METALLICA
+
+	//IF Sets = ""
+	//IF Sets: { Set: { Song: { @name } } }
+
+	
+
 				//console.log(setlist);
 				if(sets) {
 					// if its an array
 					if (Array.isArray(sets)) {
-						//console.log("IN FIRST FUNCTION")
+						console.log("IN FIRST INNER FUNCTION")
 						songs = sets.reduce(function(arr, set){
 							// map over all songs and return song name
 							if(Array.isArray(set.song)) {
@@ -115,7 +138,7 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 					}
 					// else its an object
 					else if (typeof sets == 'object') {
-						//console.log("IN SECOND FUNCTION")
+						console.log("IN SECOND INNER FUNCTION")
 						// if sets.song is an array
 						if(Array.isArray(sets.song)) {
 							songs = sets.song.reduce(function(arr, song){
@@ -124,7 +147,7 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 							}, []);
 						}
 						else {
-							//console.log("IN THIRD FUNCTION")
+							console.log("IN THIRD INNER FUNCTION")
 							songs = sets.song["@name"];
 							//console.log("SONGS!!!",songs)
 						}
@@ -133,24 +156,37 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 					}
 
 					else if (sets == "") {
-						//console.log("REACHED UNDEFINED FUNCTION!!!")
+						console.log("REACHED UNDEFINED FUNCTION!!!")
 						songs = "There wasn't any setlists found for this event";
 					}
 
 				}
 				
-				//console.log('---------------------')
+				//console.log("SONGS TO BE ADDED TO RESULST", songs);
 
-				const setlistInfo = { 
-					"id": id, 
-					"eventDate":eventDate, 
-					"venueName":venueName,  
-					"artistName":artistName, 
-					"artistMbid":artistMbid,
-					"songs":songs
-				};
-				results.push(setlistInfo);
-				callback(null);
+				if(songs != undefined && songs != "" && songs != null) {
+
+					const setlistInfo = { 
+						"id": id, 
+						"eventDate":eventDate, 
+						"venueName":venueName,  
+						"artistName":artistName, 
+						"artistMbid":artistMbid,
+						"songs":songs
+					};
+					results.push(setlistInfo);
+					callback(null);
+
+				}
+
+				else {
+					console.log("SONGS WAS EMPTY...NOT ADDING TO RESULTS");
+					callback(null);
+				}	
+
+
+
+
 			},
 			function(err) {
 				//console.log("SETLIST RESULTS:" + results);
@@ -163,16 +199,19 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 				//     pageTitle: 'Setlists',
 				//     results: results
 				// });
+				//getFlickrPhotos("311");
 
 				res.json(results);
 			});
 		}
 		else {
-			res.send("not found")
+			const data = null;
+			res.send(data);
 		}
 		
 	});
 });
+
 
 
 
@@ -243,6 +282,11 @@ router.post("/playlist", function(req, res) {
 	const songs = req.body["tracks[]"];
 	console.log("BODY", req.body)
 	const {venue, date, artistName, save} = req.body;
+	const playlistDetails = {
+		artistName: artistName,
+		venue: venue,
+		date: date,
+	};
 	let songIds = [];
 	let songPreviews = [];
 
@@ -310,7 +354,7 @@ router.post("/playlist", function(req, res) {
 
 	//Call function to add tracks to create new playlist and add tracks
 
-	makePlaylist(songIds, req.user, playlistTitle, save, spotifyApi);
+	makePlaylist(songIds, req.user, playlistDetails, playlistTitle, save, spotifyApi);
 
 	}
 	);
@@ -320,101 +364,156 @@ router.post("/playlist", function(req, res) {
 
 });
 
-	function makePlaylist(songIds, user, playlistTitle, save, spotifyApi) {
 
-		// if false: create playlist
-		if(save === "false") {
-			console.log("hello from save")
-			console.log("USEER", user)
-			console.log("HAS LISTENINGPLAYLISTID", !user.spotify.listeningPlaylistId);
+///////// NEED TO ADD PLAYLISTS TO DATABASE AS USER SAVES, AND THEN CHECK ANY NEW PLAYLIST
+///////// REQUESTS AGAINST DATABASE, to ensure only one TEMPORARY PLAYLIST PER SESSION
+///////// CURRENTLY IT OVERWRITES A "SAVED" LIST IF YOU CHOOSE PLAY AS YOUR NEXT CHOICE.
+	//if playlist is found, delete listeningPlaylistId entry and reset TEMP PLAYLIST PROCESS
+	//
 
-			const playlistTitle = "TEMPORARY PLAYLIST";
-			// check if user has listeningPlaylistId
-			User.findById(user.id, function(err, user){
 
-				if(!user.spotify.listeningPlaylistId) {
-				console.log("DOESNT HAVE ID YET, SO CREATE NEW ONES");
-				
-				createPlaylist(songIds, user, playlistTitle, spotifyApi);
-				}
 
-				else {
-					console.log("ALREADY HAS A PLAYLIST>>>OVERWRITING");
-					updatePlaylist(songIds, user, user.spotify.listeningPlaylistId, spotifyApi);
-				}
-				// else update setlistst on spotify
 
-				
+function makePlaylist(songIds, user, playlistDetails, playlistTitle, save, spotifyApi) {
 
-			})
-		}
-		else if(save === 'true') {
+	// if false: create playlist
+	if(save === "false") {
+		console.log("hello from save")
+		console.log("USEER", user)
+		console.log("HAS LISTENINGPLAYLIST ID:", user.spotify.listeningPlaylistId);
 
-			createPlaylist(songIds, user, playlistTitle, spotifyApi);
-		}
-	}
-
-	function createPlaylist(songIds, user, playlistTitle, spotifyApi) {
-
-		let playlistId;
-
-		// playlistTitle = "TEMPORARY PLAYLIST"; //+ playlistTitle;
 		
-		let {token, name} = user.spotify;
+		// check if user has listeningPlaylistId
+		User.findById(user.id, function(err, user){
 
-		spotifyApi.setAccessToken(token);
+			if(!user.spotify.listeningPlaylistId) {
+				console.log("DOESNT HAVE ID YET, SO CREATE NEW ONES");
+				const playlistTitle = "TEMPORARY PLAYLIST";
+				
+				createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi);
+			}
 
-		console.log("FIRST PLAYLIST CREATED");
-		spotifyApi.createPlaylist(name, playlistTitle)
-			.then(function(data) {
-			    console.log('Ok. Playlist id 123 created!');
-			    playlistId = data.body.id; //['id'];
+			else {
 
-			    console.log("PLAYLIST INFO!!!!", data.body.tracks);
-			    console.log("PLAYLIST ID" + playlistId);
+				console.log("ALREADY HAS A PLAYLIST>>>OVERWRITING");
+				updatePlaylist(songIds, user, user.spotify.listeningPlaylistId, spotifyApi);
+			}
+			// else update setlistst on spotify
 
-			    // Add tracks to the playlist
-			    return spotifyApi.addTracksToPlaylist(name, playlistId, songIds);
+		});
+	}
+	else if(save === "true") {
 
-			}).then(function(data) {
-				console.log("PLAYLIST CREATED DATA" + data);
-				// save the id to mongo
+		createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi);
+	}
+}
+
+function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi) {
+
+	let playlistId;
+
+	// playlistTitle = "TEMPORARY PLAYLIST"; //+ playlistTitle;
+	
+	let {token, name, savedPlaylists, id} = user.spotify;
+	let {artistName, venue, date} = playlistDetails;	
+
+	console.log(save);
+
+	spotifyApi.setAccessToken(token);
+
+	console.log("FIRST PLAYLIST CREATED");
+	spotifyApi.createPlaylist(name, playlistTitle)
+		.then(function(data) {
+		    console.log('Ok. Playlist id: ' + data.body.id +  '  was created!');
+		    playlistId = data.body.id; //['id'];
+
+		    console.log("PLAYLIST INFO!!!!", data.body.tracks.items);
+		    console.log("PLAYLIST ID" + playlistId);
+
+		    // Add tracks to the playlist
+		    return spotifyApi.addTracksToPlaylist(name, playlistId, songIds);
+
+		}).then(function(data) {
+			console.log("PLAYLIST CREATED DATA" + data);
+			// save the id to mongo
+			if(save === "false") {
+				console.log("USER WANTS TO LISTEN NOT SAVE THIS LIST");
 				user.spotify.listeningPlaylistId = playlistId;
 				user.markModified('spotify.listeningPlaylistId');
 				user.save();
+			}
+			else if(save === "true") {
+				console.log("USER WANTS TO SAVE THIS LIST", user.spotify.savedPlaylists);
 
-				console.log(user.spotify.listeningPlaylistId);
+				embedCode = '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A' + id + '%3Aplaylist%3A' + playlistId + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>';
+				// '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Ajustannoyed%3Aplaylist%3A67vZ4AnRNsociAbVYDcU4f" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
+				let playlist = {
+					playlistId: playlistId,
+					artist: artistName,
+					venue: venue,
+					date: date,
+					embedCode: embedCode,
+				};
+				console.log("PLAYLIST INFO TO SAVE", playlist)
+				user.spotify.savedPlaylists.push(playlist);
+				user.markModified('spotify.savedPlaylists');
+				user.save();
+				console.log("AFTER PLAYLIST SAVED", user);
+				// user.spotify.listeningPlaylistId == undefined;
+				// user.markModified('spotify.listeningPlaylistId');
+				// user.save();
+				//return;	
+			}
+			console.log(user.spotify.listeningPlaylistId);
 
-			    console.log('Ok. Tracks added!');
+		    console.log('Ok. Tracks added!');
 
-			}).catch(function(err) {
-			    console.log(err.message);
-			    console.log('Something went wrong!');
-		  	});
-	}
+		}).catch(function(err) {
+		    console.log(err.message);
+		    console.log('Something went wrong!');
+	  	});
+}
 
-	function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi) {
+function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi) {
 
-		let {token, name} = user.spotify;
+	let {token, name} = user.spotify;
 
-		spotifyApi.setAccessToken(token);
+	spotifyApi.setAccessToken(token);
 
-		console.log("UPDATING PLAYLIST WITH ----");
-		console.log("Name:", name);
-		console.log("token", token);
-		console.log("ID TO UPDATE", listeningPlaylistId);
-		console.log("SONGS", songIds);
+	console.log("UPDATING PLAYLIST WITH ----");
+	console.log("Name:", name);
+	console.log("token", token);
+	console.log("ID TO UPDATE", listeningPlaylistId);
+	console.log("SONGS", songIds);
 
-		spotifyApi.replaceTracksInPlaylist(name, listeningPlaylistId, songIds)
-			  .then(function(data) {
-			    console.log('Ok. Tracks replaced!');
-			  }).catch(function(err) {
-			    console.log(err.message);
-			    console.log('Something went wrong!');
-			  });
+	spotifyApi.replaceTracksInPlaylist(name, listeningPlaylistId, songIds)
+		.then(function(data) {
+		console.log('Ok. Tracks replaced!');
+		}).catch(function(err) {
+		console.log(err.message);
+		console.log('Something went wrong!');
+		});
 
-	}
+}
 
+function checkUsersPlaylists(user, spotifyApi) {
+
+	let {id} = user.spotify;
+
+	spotifyApi.setAccessToken(token);
+
+	console.log("GETTING USER PLAYLISTS");
+
+	spotifyApi.getUserPlaylists(userId)
+		.then(function(data) {
+		  return(data);
+		  console.log('Ok. Users current playlists');
+		}).catch(function(err) {
+		  console.log(err.message);
+		  console.log('Something went wrong!');
+		});
+
+}
 
 
 	// 	console.log("FIRST PLAYLIST CREATED");
@@ -483,3 +582,4 @@ router.post("/playlist", function(req, res) {
 
 
 module.exports = router;
+

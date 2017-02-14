@@ -18,6 +18,7 @@ var session = require('express-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var search = require('./routes/search');
+var photos = require('./routes/photos');
 // var artist = require('./routes/artist');
 
 var configDB = require('./config/database.js');
@@ -53,10 +54,12 @@ app.use(flash());
 require('./config/passport')(passport);
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/users', isLoggedIn, users);
 // put middleware to check auth
 app.use('/search', isLoggedIn, search);
 // app.use('/artist', artist);
+app.use('/photos', isLoggedIn, photos);
+
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
