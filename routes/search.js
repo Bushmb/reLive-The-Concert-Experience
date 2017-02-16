@@ -445,7 +445,7 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 			else if(save === "true") {
 				console.log("USER WANTS TO SAVE THIS LIST", user.spotify.savedPlaylists);
 
-				embedCode = '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A' + id + '%3Aplaylist%3A' + playlistId + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>';
+				// embedCode = '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A' + id + '%3Aplaylist%3A' + playlistId + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>';
 				// '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Ajustannoyed%3Aplaylist%3A67vZ4AnRNsociAbVYDcU4f" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
 				let playlist = {
 					playlistId: playlistId,

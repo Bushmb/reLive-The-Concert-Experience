@@ -90,6 +90,8 @@ router.get('/:localUserId', function(req, res, next) {
 
 	// // res.send("GOT THE PLAYLIST DATA, MAYBE!")
 
+	// res.render('search_bk.html', );
+
 	res.render('search.html', { user: req.user });
 
 

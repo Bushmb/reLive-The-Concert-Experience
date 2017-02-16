@@ -25,7 +25,23 @@ function watchPlaySetlist() {
 			for(i = 0; i < data.length; i++) {
 				console.log(data[i].url);
 
-				toAppend += `<div class="thumbnail"><a href="${data[i].url}" target="_blank"><img src=${data[i].url}></a></div>`;
+			toAppend +=	"<li class='col-lg-3 col-md-3 col-sm-4'>" +
+						    "<div class='speaker'>" +
+						        "<figure class='effect-ming'>" + 
+						            "<img class='img-responsive' src='" + data[i].thumbnail + "' alt=''/>" +
+						              "<figcaption>" +
+						                  "<span><a href='" + data[i].url + "' target='_blank'><img class='img-responsive' src=img/plus.png alt=''></a></span>" +
+						              "</figcaption>" +      
+						        "</figure>" + 
+				            "</div>" + 
+		          		"</li>";
+				        //   <div class="caption text-center">
+				        // <h4>Death in June</h4>
+				        //       <p class="company">05-22-2016</p>
+				        //   </div>   
+				     
+
+				// toAppend += `<div class="thumbnail"><a href="${data[i].url}" target="_blank"><img src=${data[i].url}></a></div>`;
 
 				// "<div class='thumbnail'><a target='_blank' href='" + data[i].url "'><img src='" + data[i].url + "' alt='Photo " + id + "' style='width:100%'>" + "</a></div>";
 			}
@@ -34,6 +50,7 @@ function watchPlaySetlist() {
 
 		
 		$.get(url, function(data) {
+
 			let toAppend = '';
 
 			console.log("DATA", data);
@@ -41,50 +58,63 @@ function watchPlaySetlist() {
 			if(data.length > 0){
 				
 				for(i = 0; i < data.length; i++) {
-					//console.log(data[i].artistName);
-					//console.log(data[i].songs);
-					toAppend += "<div class='" + data[i].id + "'><h3 class='artist-name'>" + data[i].artistName + "</h3>" + 
+
+					if(i == 0 || (i % 3) == 0){
+						toAppend += "<div class='row'>";
+					}
+				
+					toAppend += "<div class='" + data[i].id + " feature col-lg-4 col-md-4 col-sm-4'>" + 
+								"<h3 class='artist-name'>" + data[i].artistName + "</h3>" + 
 								"<h4 class='venue'>" + data[i].venueName + "</h4>" + 
 								"<h4 class='date'>" + data[i].eventDate + "</h4>" + 
 								"<h4>" + data[i].songs.length + " songs </h4>"; 
 
 					if (data[i].songs.length > 1 && Array.isArray(data[i].songs	))	{		
 						for(j = 0; j < data[i].songs.length; j++) {
-							toAppend += "<div class='song-name'>" + data[i].songs[j] + "</div>";
-							// toAppend += "<li>" + data[i].artistName + "</li>"
+							
+							// toAppend += `<p class="song-name">${data[i].songs[j]}</p>`;
+							toAppend += "<p class='song-name'>" + data[i].songs[j] + "</p>";
+							
 						}
 					}
 					else {
-						toAppend += "<div>" + data[i].songs + "</div>";
+						// toAppend += `<p class="song-name">${data[i].songs[j]}</p>`;
+						toAppend += "<p>" + data[i].songs + "</p>";
 					}
-					toAppend += "<button class='play-setlist' data-playlist-id='" + data[i].id + "'> Play Setlist </button></div>";
+
+
+					//NEED TO FIGURE OUT HOW TO ADD A ROW FOR EVERY 3 ITEMS!!!!!!!!
+					
+
+					toAppend += "<button class='play-setlist' data-playlist-id='" + data[i].id + "'> Play Setlist </button><br>";
 					toAppend += "<button class='save-setlist' data-playlist-id='" + data[i].id + "'> SAVE Setlist </button></div>";
 				
+
+					if((i % 3) == 0 && i != 0){
+						toAppend += "</div>";
+					}
 				}
 
-				$('#results').html(toAppend);
+				$('#artist-results').html(toAppend);
 
 			}
 			else if(!data || data.length === 0 || data === null){
 				console.log("SHOULD BE THROWING ERROR");
 				toAppend += "<h4>There were no setlists found for this artist</h4>";
 
-				$('#results').html(toAppend);
+				$('#artist-results').html(toAppend);
 			}
 			else {
 				console.log("SHOULD BE THROWING ERROR");
 				toAppend += "<h4>There were no setlists found for this artist</h4>";
 
-				$('#results').html(toAppend);
+				$('#artist-results').html(toAppend);
 			}
 			
-
+			let title = "<h1>YOUR SEARCH RESULTS</h1>" + 
+						"<p class='lead'>We found these recent concerts</p>";
+			$('#search-result-title').html(title);
 		});
-
-
-
-
-		
 
 	});		
 
@@ -121,11 +151,12 @@ function watchPlaySetlist() {
 }
 
 
-	$("#results").on("click", ".play-setlist", function(event) {
+
+	$("#artist-results").on("click", ".play-setlist", function(event) {
 		setlistSpotify(this, false);
 	});
 
-	$("#results").on("click", ".save-setlist", function(event){
+	$("#artist-results").on("click", ".save-setlist", function(event){
 		setlistSpotify(this, true);
 	});
 

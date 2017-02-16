@@ -1,8 +1,4 @@
-/* Theme Name: Meetup - Responsive Boostrap Theme
-Author: CbsNet
-Version: 1.0.0
-Created: January 2016
-License:Creative Commons Attribution 3.0 License (https://creativecommons.org/licenses/by/3.0/)
+/*
 File Description: Main CSS file of the template 
 */
 
@@ -27,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 36px;
 	font-weight: bold;
-	margin-top: 65px;
+	margin-top: 20px;
 	margin-bottom: 0px;	
 }
 
@@ -63,6 +59,10 @@ section {
 	padding-right: 0;
 	padding-bottom: 90px;
 	padding-left: 0;
+}
+
+input, button, select, textarea {
+	margin: 10px;
 }
 
 .uppercase {
@@ -112,7 +112,9 @@ a {
 	-webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
  	-moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
     transition: background .5s ease-in-out,padding .5s ease-in-out;
-	background-color: transparent;	
+	background-color: rgba(0, 0, 0, 0.32);
+}
+	
 }
 
 .navbar-custom a {
@@ -345,6 +347,19 @@ a {
 
 /*INFO*/
 
+p .searchbox-text {
+  margin: 0 0 1px;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+@media (min-width: 992px) {
+  .searchbox-text {
+    font-size: 17px;
+  }
+}
+
 #info {
 	padding-top: 70px;
 	padding-right: 0;
@@ -360,6 +375,13 @@ a {
 .feature {
 	margin:50px 0 0 0;
 }
+
+.span3 {
+	width:30%; 
+	display:inline-block; 
+	margin-bottom:5px; 
+	padding:5px;}
+
 
 
 
@@ -1029,11 +1051,76 @@ a {
 	margin-bottom: -75px;	
 }
 
-#testimonial .testimonial-inner {
+#testimonial .testimonial-right {
 	background:rgba(0, 0, 0, 0.7);  
 	padding:50px 40px 30px 40px;
-	min-height:400px;
+	min-height:500px;
+	max-height:500px;
 }
+
+#testimonial .testimonial-left {
+	background:rgba(0, 0, 0, 0.7);  
+	padding:10px 20px 10px 20px;
+	min-height:500px;
+	max-height:500px;
+	
+}
+
+
+.setlist-results {
+	min-height:480px;
+	max-height:480px;
+	overflow-y: auto;
+}
+
+div.zebra span{
+	margin-right: 5px;
+}
+
+div.zebra span:nth-child(odd)
+{
+    font-weight: 300;
+    color: #797979;
+}
+
+div.indiv-setlist h2{
+	color:#333;
+	font-family:'Roboto';
+	font-size:40px;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+
+div.indiv-setlist h3{
+	font-family:'Roboto';
+	font-size:28px;
+	letter-spacing:-1px;
+	color:#ff8600;
+	line-height:28px;
+	/*padding-bottom:5px;*/
+	margin-bottom: 2px;
+	margin-top: 18px;
+}
+
+div.indiv-setlist h4{
+	font-family:'Roboto';
+	font-size:25px;
+	letter-spacing:1px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	color: #a5a5a5;
+}
+
+div.indiv-setlist h5 {
+	font-family:'Roboto';
+	font-size:18px;
+	letter-spacing:1px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	color: #525252;
+}
+
 
 #testimonial-carousel img {
 	border:2px solid #ffffff;
@@ -1751,8 +1838,12 @@ figure.effect-ming:hover img {
 	margin-left: 17%;
 }
 
-	.form-fields{	
+	.form-fields{
+	margin-top: 40px;	
 	padding-bottom:80px;
+	text-align: center;
+	margin-top: 50px;
+	float: right;
 	}
 
 	.map-canvas{
@@ -1774,5 +1865,11 @@ figure.effect-ming:hover img {
 	text-align:center;
 	margin-top:20px;
 }
+
+	.search-box {
+		text-align: center;
+		margin-top: 50px;
+		float: right;
+	}
 
 }

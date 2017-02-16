@@ -3,6 +3,8 @@ jQuery(document).ready(function($) {
    'use strict';
    
    //REV SLIDER
+   watchPlaySetlist();
+
    jQuery('.tp-banner').show().revolution(
 	{
 		dottedOverlay:"none",
@@ -258,44 +260,44 @@ jQuery(document).ready(function($) {
 	
 	
 	
-	//GOOGLE MAPS
+	// //GOOGLE MAPS
 		  
-	// Creating a LatLng object containing the coordinate for the center of the map
-	var latlng = new google.maps.LatLng(40.801485408197856, -73.96745953467104);
+	// // Creating a LatLng object containing the coordinate for the center of the map
+	// var latlng = new google.maps.LatLng(40.801485408197856, -73.96745953467104);
 	  
-	// Creating an object literal containing the properties we want to pass to the map  
-	var options = {  
-		zoom: 14, // This number can be set to define the initial zoom level of the map
-		center: latlng,
-		scrollwheel: false,
-		styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}],
-		mapTypeId: google.maps.MapTypeId.ROADMAP, // This value can be set to define the map type ROADMAP/SATELLITE/HYBRID/TERRAIN
-		disableDefaultUI: true
-	};  
-	// Calling the constructor, thereby initializing the map  
-	var map = new google.maps.Map(document.getElementByClass('map-canvas'), options);  
+	// // Creating an object literal containing the properties we want to pass to the map  
+	// var options = {  
+	// 	zoom: 14, // This number can be set to define the initial zoom level of the map
+	// 	center: latlng,
+	// 	scrollwheel: false,
+	// 	styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}],
+	// 	mapTypeId: google.maps.MapTypeId.ROADMAP, // This value can be set to define the map type ROADMAP/SATELLITE/HYBRID/TERRAIN
+	// 	disableDefaultUI: true
+	// };  
+	// // Calling the constructor, thereby initializing the map  
+	// var map = new google.maps.Map(document.getElementByClass('map-canvas'), options);  
 	
-	// Define Marker properties
-	var image = new google.maps.MarkerImage('img/map-logo.png',
-		// This marker is 129 pixels wide by 42 pixels tall.
-		new google.maps.Size(125, 75),
-		// The origin for this image is 0,0.
-		new google.maps.Point(0,0),
-		// The anchor for this image is the base of the flagpole at 18,42.
-		new google.maps.Point(18, 42)
-	);
+	// // Define Marker properties
+	// var image = new google.maps.MarkerImage('img/map-logo.png',
+	// 	// This marker is 129 pixels wide by 42 pixels tall.
+	// 	new google.maps.Size(125, 75),
+	// 	// The origin for this image is 0,0.
+	// 	new google.maps.Point(0,0),
+	// 	// The anchor for this image is the base of the flagpole at 18,42.
+	// 	new google.maps.Point(18, 42)
+	// );
 	
-	// Add Marker
-	var marker1 = new google.maps.Marker({
-		position: new google.maps.LatLng(40.801485408197856, -73.96745953467104), 
-		map: map,		
-		icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	});	
+	// // Add Marker
+	// var marker1 = new google.maps.Marker({
+	// 	position: new google.maps.LatLng(40.801485408197856, -73.96745953467104), 
+	// 	map: map,		
+	// 	icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
+	// });	
 	
-	// Add listener for a click on the pin
-	google.maps.event.addListener(marker1, 'click', function() {  
-		infowindow1.open(map, marker1);  
-	});
+	// // Add listener for a click on the pin
+	// google.maps.event.addListener(marker1, 'click', function() {  
+	// 	infowindow1.open(map, marker1);  
+	// });
 		
 		
 	// Create information window
@@ -386,3 +388,216 @@ var contact_send = function(){
 		}
 	
 	};
+
+	function watchPlaySetlist() {
+
+		$(".setlist").on('click', '.btn', function(){ 
+		     
+		     document.location = "http://localhost:8080/setlist/" + $(this).attr("data-artist") + "/" + $(this).attr("data-song")
+		     // alert($(this).attr("data-song"));
+		});
+
+		$('#results').on('click', '.setListApi', function(){
+			// collect the mbid 
+			const artistName = $(this).attr("data-artistName");
+			const photoUrl = "/photos/" + artistName;
+
+			const mbid = $(this).attr("data-mbid");
+			const url = "/search/setlists/" + mbid;
+
+
+			$.get(photoUrl, function(data) {
+				console.log("MADE THE PHOTO CALL");
+				console.log("PHOTO DATA", data);
+
+				let toAppend = '';
+				for(i = 0; i < data.length; i++) {
+					console.log(data[i].url);
+
+				toAppend +=	"<li class='col-lg-3 col-md-3 col-sm-4'>" +
+							    "<div class='speaker'>" +
+							        "<figure class='effect-ming'>" + 
+							            "<img class='img-responsive' src='" + data[i].thumbnail + "' alt=''/>" +
+							              "<figcaption>" +
+							                  "<span><a href='" + data[i].url + "' target='_blank'><img class='img-responsive' src=img/plus.png alt=''></a></span>" +
+							              "</figcaption>" +      
+							        "</figure>" + 
+					            "</div>" + 
+			          		"</li>";
+					        //   <div class="caption text-center">
+					        // <h4>Death in June</h4>
+					        //       <p class="company">05-22-2016</p>
+					        //   </div>   
+					     
+
+					// toAppend += `<div class="thumbnail"><a href="${data[i].url}" target="_blank"><img src=${data[i].url}></a></div>`;
+
+					// "<div class='thumbnail'><a target='_blank' href='" + data[i].url "'><img src='" + data[i].url + "' alt='Photo " + id + "' style='width:100%'>" + "</a></div>";
+				}
+				$('#photo-results').html(toAppend);
+			});
+
+			
+			$.get(url, function(data) {
+
+				let toAppend = '';
+
+				console.log("DATA", data);
+				
+				if(data.length > 0){
+					
+					for(i = 0; i < data.length; i++) {
+
+						
+						toAppend += "<div class='indiv-setlist " + data[i].id + "'>" + 
+						  "<h3 class='artist-name'>" + data[i].artistName + "</h3>" + 
+						  "<h3 class='venue'>" + data[i].venueName + "</h3>" +
+						  "<h4 class='date'>" + data[i].eventDate + "</h4>" +
+						  "<h5>" + data[i].songs.length + " songs </h4>" + 
+						  "<div class='zebra'>";
+
+
+						// "<div class='indiv-setlist'> + 
+						//   "<h3 class='artist-name hidden'>" + data[i].artistName + "</h3>" + 
+						//   "<h4 class='venue'>" + data[i].venueName + "</h4>" +
+						//   "<h4 class='data'>" + data[i].eventDate + "</h4>" +
+						//   "<h5>" + data[i].songs.length + " songs </h4>" + 
+						//   "<div class='zebra'>";
+						//   <span>Songs 1</span><span>Songs 2</span><span>Songs 3</span><span>Songs 4</span><span>Songs 5</span><span>Songs 6</span><span>Songs 7</span>
+						//   </div>
+						// </div>
+					
+						// toAppend += "<div class='" + data[i].id + " feature col-lg-4 col-md-4 col-sm-4'>" + 
+						// 			"<h3 class='artist-name'>" + data[i].artistName + "</h3>" + 
+						// 			"<h4 class='venue'>" + data[i].venueName + "</h4>" + 
+						// 			"<h4 class='date'>" + data[i].eventDate + "</h4>" + 
+						// 			"<h4>" + data[i].songs.length + " songs </h4>"; 
+
+						if (data[i].songs.length > 1 && Array.isArray(data[i].songs	))	{		
+							for(j = 0; j < data[i].songs.length; j++) {
+								
+								
+								// toAppend += "<p class='song-name'>" + data[i].songs[j] + "</p>";
+
+								toAppend += "<span class='song-name'>" + data[i].songs[j] + "</span>";
+								
+							}
+						}
+						else {
+							// toAppend += `<p class="song-name">${data[i].songs[j]}</p>`;
+							toAppend += "<span class='song-name'>" + data[i].songs + "</span>";
+						}
+						
+
+						toAppend += "<button class='play-setlist' data-playlist-id='" + data[i].id + "'> Play Setlist </button>";
+						toAppend += "<button class='save-setlist' data-playlist-id='" + data[i].id + "'> SAVE Setlist </button></div></div>";
+					
+					}
+
+					$('.setlist-results').html(toAppend);
+
+				}
+				else if(!data || data.length === 0 || data === null){
+					console.log("SHOULD BE THROWING ERROR");
+					toAppend += "<h4>There were no setlists found for this artist</h4>";
+
+					$('.setlist-results').html(toAppend);
+				}
+				else {
+					console.log("SHOULD BE THROWING ERROR");
+					toAppend += "<h4>There were no setlists found for this artist</h4>";
+
+					$('.setlist-results').html(toAppend);
+				}
+				
+				// let title = "<h1>YOUR SEARCH RESULTS</h1>" + 
+				// 			"<p class='lead'>We found these recent concerts</p>";
+				// $('#search-result-title').html(title);
+			});
+
+		});		
+
+		$('#search').on('keyup', function(e){
+		   if(e.keyCode === 13) {
+		   	console.log("working");
+		     const parameters = $(this).val();
+		     const url = "/search/" + parameters;
+		       console.log(url);
+		     
+		    	$.get(url, function(data) {
+		    		let toAppend = '';
+		    		for(i = 0; i < data.length; i++) {
+		    			const artistName = data[i].artistName;
+		    			const artist = artistName.split(' ').join('+');
+		    			console.log(artist);
+
+		    			toAppend += "<input type='button' class='btn setListApi' value='" + data[i].artistName + "' data-mbid=" + data[i].artistMbid + " data-artistName=" + artist + "/>";
+		    			// toAppend += "<input type='button' class='setListApi' value='" + data[i].artistName + "' data-mbid=" + data[i].artistMbid + " data-artistName=" + artist + "/>";
+		    		}
+		    		$('#results').html(toAppend);
+		    	});
+
+		    $(this).val('');
+		    return false;
+
+
+		       		// .fail(function(data) {
+		       		// 	console.log(data.responseText);
+		       		// 	alert(data.responseText);
+		       		// // alert(data);
+		       		// });
+		    }
+		 });
+
+	}
+
+
+
+		$(".setlist-results").on("click", ".play-setlist", function(event) {
+			console.log("PLAYED CLICK");
+			setlistSpotify(this, false);
+		});
+
+		$(".setlist-results").on("click", ".save-setlist", function(event){
+			setlistSpotify(this, true);
+		});
+
+
+		function setlistSpotify(clickHandler, save) {
+			const playlistId = $(clickHandler).data("playlist-id")// extracting data from the button
+			const tracks = Array.from($('.' + playlistId + ' .song-name')).map(function(track) {
+				return track.innerHTML;
+			})
+			const artistName = $('.' + playlistId + ' .artist-name').text()
+			
+			const toApi = tracks.map(function(track) {
+				// build up string
+				return 'track:' +track+ ' artist:' +artistName
+			})
+			// use thst data to dynamicaly select a class
+			const venue = $('.' + playlistId + ' .venue').text()
+			const date = $('.' + playlistId + ' .date').text()
+			
+			console.log("TO SEND TO PLAYLIST");
+			console.log("PLAYLIST ID", playlistId);
+			console.log("VENUE", venue);
+			console.log("Date", date);
+			console.log("artistName", artistName);
+			console.log("toApi", toApi);
+			console.log("save", save);
+
+			$.post({
+			  url: "/search/playlist",
+			  data: {
+			  	playlistId: playlistId,
+			  	venue: venue,
+			  	date: date,
+			  	artistName: artistName,
+			  	tracks: toApi,
+			  	save: save
+			  }
+			})
+			  .done(function( msg ) {
+			    alert( "Data Saved: " + msg );
+			  });
+		}

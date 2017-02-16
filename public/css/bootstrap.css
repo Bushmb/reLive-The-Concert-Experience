@@ -1099,7 +1099,7 @@ h6,
   font-size: 12px;
 }
 p {
-  margin: 0 0 10px;
+  margin: 0 0 0px;
 }
 .lead {
   margin-bottom: 20px;
@@ -1107,6 +1107,10 @@ p {
   font-weight: 300;
   line-height: 1.4;
 }
+.lead .searchbox-text {
+  margin-bottom: 5px;
+}
+
 @media (min-width: 992px) {
   .lead {
     font-size: 21px;
