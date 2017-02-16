@@ -2730,16 +2730,17 @@ select[multiple].input-lg {
   vertical-align: middle;
   cursor: pointer;
   background-image: none;
-  border: 1px solid transparent;
+  border: 1px solid black;
   white-space: nowrap;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  background-color: #eaeaea
 }
 .btn:focus,
 .btn:active:focus,
@@ -2750,8 +2751,9 @@ select[multiple].input-lg {
 }
 .btn:hover,
 .btn:focus {
-  color: #333333;
+  color: #ff8600;
   text-decoration: none;
+  background-color: #858786;
 }
 .btn:active,
 .btn.active {

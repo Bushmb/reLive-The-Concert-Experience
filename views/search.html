@@ -24,16 +24,16 @@
         <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="css/font-awesome.css">
         <link rel="stylesheet" href="css/font.css">
-        <link rel="stylesheet" href="css/grid-data-columns.css">
-        <link rel="stylesheet" href="css/jquery.countdown.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        <!-- <link rel="stylesheet" href="css/grid-data-columns.css"> -->
+        <!-- <link rel="stylesheet" href="css/jquery.countdown.css"> -->
+        <!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
         <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/owl.theme.css">        
         <link rel="stylesheet" href="css/owl.transitions.css">
-        <link rel="stylesheet" href="css/revolution.css">
-        <link rel="stylesheet" href="css/price-tables.css">
-        <link rel="stylesheet" href="css/revolution-extralayers.css">
+        <!-- <link rel="stylesheet" href="css/revolution.css"> -->
+        <!-- <link rel="stylesheet" href="css/price-tables.css"> -->
+        <!-- <link rel="stylesheet" href="css/revolution-extralayers.css"> -->
         <link rel="stylesheet" href="css/audio-player.css">        
         
         
@@ -42,14 +42,10 @@
         
              
         <!-- FAVICON -->
-        <!--  TESTING -->
 
-        <link rel="shortcut icon" href="../img/favicon.ico">
-
-
+        <link rel="shortcut icon" href="favicon.ico">
 
   </head>
-
   <body>
 
 
@@ -82,45 +78,8 @@
                 </div><!-- end menu navigation --> 
               </nav>
 
-      <!-- <div class="col-sm-8 col-sm-offset-2">
-        <div class="text-center">
-          <h1 class=" fa fa-user"> Profile</h1><br>
-         <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
-         <span class="fa fa-sign-out"><a href="/logout"> Sign out</a></span>
-         <hr>
-         <div class="jumbotron">
-           <% if (user.local.email != null) { %>
-             <img src="https://avatars.io/gravatar/<%= user.local.email %>/140" class="img-circle"><br>
-             <strong>email</strong>: <%= user.local.email %><br>
-           <% } %>
-           
-           <% if (user.spotify.id != null) { %>
-            <i class="fa fa-spotify fa-5x"></i><br>
-             <h2> Spotify</h2><br>
-             <img src="<%= user.spotify.photo %>" class="img-circle"><br>
-            <strong>SPOTIFY id</strong>: <%= user.spotify.id %><br>
-            <strong>LOCAL ID</strong>: <%= user.id %>
-            <strong>email</strong>: <%= user.spotify.email %><br>
-            <strong>name</strong>: <%= user.spotify.name %>
-           <% } %>
-        
 
-           <div>
-           <input id="search-temp" type="search" placeholder="Band Name" />
-           </div>
-           <div id="photo-results-old"></div>
-           <div id="results-old"></div>
-           
-
-
-          </div>
-        </div>
-      </div> -->
-
-
-
-
-       <!-- INFO EVENT -->
+       <!-- SEARCH SECTION -->
               <section id="search_section">
                   <div class="container">
                       
@@ -148,30 +107,7 @@
                           <!-- <div id="results"></div> -->
                           <div class="col-lg-10 col-lg-offset-1 col-md-12 text-center">
                               <div id="artist-results">
-                              
-                                 <!--  <div class="feature col-lg-4 col-md-4 col-sm-4">
-                                      <i class="pe-4x pe-7s-monitor"></i>
-                                      <h3>Great Location</h3>
-                                      <p>Amenities and large scale video screens.</p>
-                                  </div>
-                                  
-                                  <div class="feature col-lg-4 col-md-4 col-sm-4">
-                                      <i class="pe-4x pe-7s-expand1"></i>
-                                      <h3>4 Large Stages</h3>
-                                      <p>The location will feature 2 great stages.</p>
-                                  </div>
-                                  
-                                  <div class="feature col-lg-4 col-md-4 col-sm-4">
-                                      <i class="pe-4x pe-7s-musiclist"></i>
-                                      <h3>Top Performers</h3>
-                                      <p>Great musician will be performing</p>
-                                  </div> 
-
-                                  <div class="feature col-lg-4 col-md-4 col-sm-4">
-                                      <i class="pe-4x pe-7s-musiclist"></i>
-                                      <h3>Top Performers</h3>
-                                      <p>Great musician will be performing</p>
-                                  </div>    -->                 
+                                             
                                 </div>
                             </div>
                         </div>
@@ -186,50 +122,7 @@
                   <div class="col-lg-6 col-md-6 no-padding">
                     <div class="testimonial-left">
                       <div class="setlist-results">
-                        <!-- <div class="indiv-setlist">
-                          <h3>ARTIST NAME</h3>
-                          <h4>CONCERT LOCATION</h4>
-                          <h4>DATE</h4>
-                          <div class="zebra">
-                          <span>Songs 1</span><span>Songs 2</span><span>Songs 3</span><span>Songs 4</span><span>Songs 5</span><span>Songs 6</span><span>Songs 7</span>
-                          </div>
-                        </div>
-
-                        <div class="indiv-setlist">
-                          <h3>ARTIST NAME</h3>
-                          <h4>CONCERT LOCATION</h4>
-                          <h4>DATE</h4>
-                          <div class="zebra">
-                          <span>Songs 1</span><span>Songs 2</span><span>Songs 3</span><span>Songs 4</span><span>Songs 5</span><span>Songs 6</span><span>Songs 7</span>
-                          </div>
-                        </div>
-
-                        <div class="indiv-setlist">
-                          <h3>ARTIST NAME</h3>
-                          <h4>CONCERT LOCATION</h4>
-                          <h4>DATE</h4>
-                          <div class="zebra">
-                          <span>Songs 1</span><span>Songs 2</span><span>Songs 3</span><span>Songs 4</span><span>Songs 5</span><span>Songs 6</span><span>Songs 7</span>
-                          </div>
-                        </div>
-
-                        <div class="indiv-setlist">
-                          <h3>ARTIST NAME</h3>
-                          <h4>CONCERT LOCATION</h4>
-                          <h4>DATE</h4>
-                          <div class="zebra">
-                          <span>Songs 1</span><span>Songs 2</span><span>Songs 3</span><span>Songs 4</span><span>Songs 5</span><span>Songs 6</span><span>Songs 7</span>
-                          </div>
-                        </div>
-
-                        <div class="indiv-setlist">
-                          <h3>ARTIST NAME</h3>
-                          <h4>CONCERT LOCATION</h4>
-                          <h4>DATE</h4>
-                          <div class="zebra">
-                          <span>Songs 1</span><span>Songs 2</span><span>Songs 3</span><span>Songs 4</span><span>Songs 5</span><span>Songs 6</span><span>Songs 7</span>
-                          </div>
-                        </div> -->
+                        
                       </div>
                     </div>
                   </div>
@@ -239,31 +132,16 @@
                             <h2 class="hidden">testimonial</h2>
                         
                             <div id="testimonial-carousel">
-                                <div class="item">
-                                  <p class="name">Melissa Moore</p>
-                                  <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Ajustannoyed%3Aplaylist%3A4KAwdU98cPF9pMVfyRFoo2" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-                                    <!-- <img class="img-circle" src="img/testimonials/test1.jpg" alt="">
-                                    <p class="lead">"Wow! I've attended the 2015 Festival and i've enjoy myself so much that i decided to subscribe for the 2016 festival as well".</p> -->
-                                    
+                                <div id="setlist-player" data-spotify-id="<%= user.spotify.id %>">
+                                  <div id="player">
+                            
+                                    </div>
                                 </div>
-                                
-                                <!-- <div class="item">
-                                   <p class="name">Michael Thomas</p>
-                                    <img class="img-circle" src="img/testimonials/test2.jpg" alt="">
-                                    <p class="lead">"Fantastic! It was soooo amazing and funny. I'll be back next year".</p>
-                                    
-                                </div>
-                                
-                                <div class="item">
-                                  <p class="name">Katy Perry</p>
-                                    <img class="img-circle" src="img/testimonials/test3.jpg" alt="">
-                                    <p class="lead">"Wow! I've attended the 2015 Festival and i've enjoy myself so much that i decided to subscribe for the 2016 festival as well".</p>
-                                </div> -->
                             </div>
                         </div>   
                     </div>
                 </div>
-            </div><!-- end accomodation section -->
+            </div>
         </section>
 
         <!-- PHOTOS SECTION -->
@@ -272,18 +150,14 @@
                 <div class="row">
                     
                     <div class="col-lg-12">
-                        <h2 class="uppercase">Bands</h2>
-                        <p class="lead">We've gathered top music performers from all corners of the world. They will be playing at the Festival</p>
+                        <h2 class="uppercase">Band Photos</h2>
+                        <p class="lead">These were the photos pulled from Flickr that matched the band you selected.</p>
                     </div> 
                     <ul id="photo-results" class="list-unstyled">
                     
                     </ul>
-                    
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                      <a id="loadmore" class="button button-small button-line-dark">load more</a>
-                    </div>
                </div>
-            </div><!-- end band section -->
+            </div><!-- end photos section -->
         </section>
         
         <!-- INFO DATA -->
@@ -298,22 +172,31 @@
                             <div id="infodata-carousel">
                                 
                                 <div class="item">
-                                    <i class="pe pe-4x pe-7s-world"></i>
+                                    <!-- <i class="pe pe-4x pe-7s-world"></i> -->
+                                    <i class="pe pe-4x pe-7s-display2"></i>
                                     <div class="desc">
-                                        <p class="number">3</p>
-                                        <p class="description">days of concerts</p>
+                                        <p class="number"> <%= user.spotify.savedPlaylists.length %></p>
+                                        <p class="description">Setlists</p>
                                     </div>
                                 </div>
                                 
                                 <div class="item">
                                     <i class="pe pe-4x pe-7s-micro"></i>
                                     <div class="desc">
-                                        <p class="number">38</p>
-                                        <p class="description">rock bands</p>
+                                        <p class="number">
+
+                                        <% var playlists = user.spotify.savedPlaylists %>
+                                        <% var songsLength = 0; %>
+                                          <% playlists.forEach(function(playlist){ %>
+                                              <% songsLength += playlist.indivSongs.length %>
+                                          <% }) %>
+                                        <%= songsLength %>
+                                        </p>
+                                        <p class="description">Songs</p>
                                     </div>
                                 </div>
                                 
-                                <div class="item">
+                                <!-- <div class="item">
                                     <i class="pe pe-4x pe-7s-display2"></i>
                                     <div class="desc">
                                         <p class="number">62</p>
@@ -327,7 +210,7 @@
                                         <p class="number">30.000</p>
                                         <p class="description">attenders</p>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -347,9 +230,9 @@
                         
                         <!-- SCHEDULE TAB -->
                         <ul id="myTab" class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#day1" id="day1-tab" role="tab" data-toggle="tab" aria-controls="day1" aria-expanded="true">2014</a></li>
-                            <li role="presentation" class=""><a href="#day2" role="tab" id="day2-tab" data-toggle="tab" aria-controls="day2" aria-expanded="false">2015</a></li>
-                            <li role="presentation" class=""><a href="#day3" role="tab" id="day3-tab" data-toggle="tab" aria-controls="day3" aria-expanded="false">2016</a></li>
+                            <li role="presentation" class="active"><a href="#day1" id="day1-tab" role="tab" data-toggle="tab" aria-controls="day1" aria-expanded="true">YOUR SAVED PLAYLISTS</a></li>
+                            <!-- <li role="presentation" class=""><a href="#day2" role="tab" id="day2-tab" data-toggle="tab" aria-controls="day2" aria-expanded="false">2015</a></li>
+                            <li role="presentation" class=""><a href="#day3" role="tab" id="day3-tab" data-toggle="tab" aria-controls="day3" aria-expanded="false">2016</a></li> -->
                         </ul>
                         
                         <!-- CONTENT -->    
@@ -358,779 +241,83 @@
                             <!-- DAY 1 -->
                             <div role="tabpanel" class="tab-pane fade active in" id="day1" aria-labelledby="day1-tab">
                                 <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                                
+                                   
+                                 <% var playlists = user.spotify.savedPlaylists %>
+                                   <% playlists.forEach(function(playlist, i){ %>
 
-                                    <!-- CONCERT 1-->
                                     <div class="panel panel-default">
                                     
                                         <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading1">
+                                        <div class="panel-heading" role="tab" id="heading<%= i %>">
                                            
                                             <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">08/30</p>
+                                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                                
+                                                <p class="date"><%= playlist.date %></p>
                                                 </div>
                                                 
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
+                                                <div class="col-lg-8 col-md-8 col-sm-8">
                                                     
                                                     <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program1" aria-expanded="true" aria-controls="Program1">
-                                                       Nine Inch Nails at White River Ampitheater
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program<%= i %>" aria-expanded="true" aria-controls="Program<%= i %>">
+                                                       <%= playlist.artist + " - " + playlist.venue %>
+                                                      <!--  Nine Inch Nails at White River Ampitheater -->
                                                         </a>
                                                     </h4>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                                <button class="btn delete-btn">DELETE</button>
                                                 </div>
                                             </div>
                                         </div>
                                     
-                                        <div id="Program1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                                        <div id="Program<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= i %>">
                                             <!-- Program Content -->
                                             <div class="panel-body">
                                                 <div class="row">
                                                     <!-- was col-lg-2..etc -->
                                                     <div class="col-lg-4 col-md-4 col-sm-4">
+                                    
 
-                                                        <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Ajustannoyed%3Aplaylist%3A4KAwdU98cPF9pMVfyRFoo2" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-                                                        <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> -->
-                                                        <!-- <img class="img-responsive img-circle" src="img/bands/1.jpg" alt=""> -->
+                                                        <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A<%= user.spotify.id %>%3Aplaylist%3A<%= playlist.playlistId %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                                                        
                                                     </div>
                                                     
                                                     <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Nine Inch Nails</p>
-                                                        <h4>"Twenty Thirteen Tour" tour</h4>
-                                                        <p>The Twenty Thirteen Tour was a concert tour by industrial rock band Nine Inch Nails to support the album Hesitation Marks. It marked the return of the band for live performances after a four-year touring hiatus. It began on July 26, 2013 and ended on August 30, 2014.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">70 Min</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">White River Ampitheater</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Industrial Rock</span></p>
+                                                      <p class="speaker-name uppercase"><%= playlist.artist %></p>
+                                                        <h4><%= playlist.venue %> + <%= playlist.date %></h4>
+                                                        <div class='zebra'>
+                                                        <% for(j = 0; j < playlist.indivSongs.length; j++) { %>
+                                                                        
+                                                            <span class='song-name'><%= playlist.indivSongs[j] %></span>
+                                                                        
+                                                        <% } %>
+                                
+                                                        </div>                                                    
+                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small"><%= playlist.indivSongs.length %> Songs</span></p>
+                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small"><%= playlist.venue %></span></p>
+                                                        <!-- <p><i class="fa fa-lg fa-signal"></i> <span class="small">Industrial Rock</span></p> -->
                                                     </div>
                                                     
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
+                                                    <!-- <div class="col-lg-3 col-md-3 col-sm-10">
                                                       <h5>About Nine Inch Nails</h5>
                                                         <p class="small">Get more information about this group, visit their official site!</p>
                                                         <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                  
+                                    <% }) %>
                                     
-                                    <!-- CONCERT 2-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading2">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">6 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program2" aria-expanded="true" aria-controls="Program2">
-                                                       Concert of Colyseum
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/2.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Colyseum</p>
-                                                        <h4>Undersground session</h4>
-                                                        <p>The band starts its new tour and presents their new rock progressive album released one month ago.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">45mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon B</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Progressive Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Colyseum</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 3-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading3">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">8 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program3" aria-expanded="true" aria-controls="Program3">
-                                                      Concert of Melting PoP
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/3.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Melting PoP</p>
-                                                        <h4>Two minutes to midnight</h4>
-                                                        <p>The band starts its new tour and presents their new pop rock album released last week.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">45mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon C</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Pop Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Melting PoP</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 4-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading4">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">10 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program4" aria-expanded="true" aria-controls="Program4">
-                                                       Concert of Death Row
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/4.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Death Row</p>
-                                                        <h4>Broke the Supply Chain</h4>
-                                                        <p>The band's first concert after the reunion. Death Row starts its new tour and presents their new hard rock album released last week.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">60mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon D</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Hard Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Death Row</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 5-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading5">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">11 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program5" aria-expanded="true" aria-controls="Program5">
-                                                       Concert of Public Area
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/5.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Public Area</p>
-                                                        <h4>"Keep the Faith" World Tour.</h4>
-                                                        <p>The band's first concert after one sabatic year. Public Area starts its new tour and presents their new progressive rock album released last week.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">60mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon A</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Progressive Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Public Area</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- DAY 2 -->
-                            <div role="tabpanel" class="tab-pane fade in" id="day2" aria-labelledby="day2-tab">
-                                <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-
-                                    <!-- CONCERT 6-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading6">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">4 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program6" aria-expanded="true" aria-controls="Program6">
-                                                       Concert of Cheaters 
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/6.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Cheaters</p>
-                                                        <h4>Automated Risk Reduction</h4>
-                                                        <p>This music session will focus on latest album released by Cheaters in december 2015.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">60mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon B</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Heavy Metal</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Cheaters</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 7-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading7">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">6 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program7" aria-expanded="true" aria-controls="Program7">
-                                                       Concert of Good Fellas
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/7.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Good Fellas</p>
-                                                        <h4>Closing the Gap</h4>
-                                                        <p>This music session will focus on latest album released by Good Fellas in december 2015. The band will be playing the last album tracks.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">45mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon A</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Progressive Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Good Fellas</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 8-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading8">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">8 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program8" aria-expanded="true" aria-controls="Program8">
-                                                       Concert of Kinki People
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/8.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Kinki People</p>
-                                                        <h4>Innovate aggressively.</h4>
-                                                        <p>This music session will focus on latest album released by Kinki People in december 2015. The band will be playing the last album tracks.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">60mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon A</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Hard Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Kinki People</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 9-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading9">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">10 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program9" aria-expanded="true" aria-controls="Program9">
-                                                       Concert of Death in June
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/1.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Death in June</p>
-                                                        <h4>"Get what you need" tour</h4>
-                                                        <p>Death in June are a neofolk group led by English folk musician Douglas Pearce, better known as Douglas P. They will present their latest album, so don't miss this concert.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">120mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon C</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Neo Folk</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Death in June</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">themecube.net</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 10-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading10">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">11 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program10" aria-expanded="true" aria-controls="Program10">
-                                                        Concert of Colyseum
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading10">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/2.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Colyseum</p>
-
-                                                        <h4>Undersground session</h4>
-                                                        <p>The band starts its new tour and presents their new rock progressive album released one month ago.</p>
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">60mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon A</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Progressive Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Colyseum</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">themecube.net</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- DAY 3 -->
-                            <div role="tabpanel" class="tab-pane fade in" id="day3" aria-labelledby="day3-tab">
-                                <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
-
-                                    <!-- CONCERT 11-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading11">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">4 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program11" aria-expanded="true" aria-controls="Program11">
-                                                       Concert of Melting PoP
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading11">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/3.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Melting PoP</p>
-                                                        <h4>Two minutes to midnight</h4>
-                                                        <p>The band starts its new tour and presents their new pop rock album released last week.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">45mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon A</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Beginner</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Melting PoP</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 12-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading12">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">6 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program12" aria-expanded="true" aria-controls="Program12">
-                                                       Concert of Death Row
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading12">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/4.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Death Row</p>
-                                                        <h4>Broke the Supply Chain</h4>
-                                                        <p>The band's first concert after the reunion. Death Row starts its new tour and presents their new hard rock album released last week.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">45mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon A</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Hard Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Death Row</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 13-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading13">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">8 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program13" aria-expanded="true" aria-controls="Program13">
-                                                       Concert of Public Area 
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading13">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/5.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Public Area</p>
-                                                        <h4>"Keep the Faith" World Tour.</h4>
-                                                        <p>The band's first concert after one sabatic year. Public Area starts its new tour and presents their new progressive rock album released last week.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">45mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon B</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Progressive Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Public Area</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 14-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading14">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">10 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program14" aria-expanded="true" aria-controls="Program14">
-                                                       Concert of Colyseum
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                        <div id="Program14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading14">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/2.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Colyseum</p>
-                                                        <h4>Undersground session</h4>
-                                                        <p>The band starts its new tour and presents their new rock progressive album released one month ago.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">120mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon B</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Progressive Rock</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Colyseum</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- CONCERT 15-->
-                                    <div class="panel panel-default">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading15">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <p class="date">11 P.M.</p>
-                                                </div>
-                                                
-                                                <div class="col-lg-11 col-md-11 col-sm-11">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program15" aria-expanded="true" aria-controls="Program15">
-                                                       Concert of Death in June
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="Program15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading15">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                                        <img class="img-responsive img-circle" src="img/bands/1.jpg" alt="">
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase">Death in June</p>
-                                                        <h4>"Get what you need" tour</h4>
-                                                        <p>Death in June are a neofolk group led by English folk musician Douglas Pearce, better known as Douglas P. They will present their latest album, so don't miss this concert.</p>
-                                                                                                                
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">60mins</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">Saloon D</span></p>
-                                                        <p><i class="fa fa-lg fa-signal"></i> <span class="small">Neo Folk</span></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Death in June</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- end concert section -->
+            </div><!-- end setlists section -->
         </section>                  
                
                

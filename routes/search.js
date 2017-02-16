@@ -280,13 +280,18 @@ router.post("/playlist", function(req, res) {
 	const SpotifyWebApi = require('spotify-web-api-node');
 
 	const songs = req.body["tracks[]"];
-	console.log("BODY", req.body)
+	const indivSongs = req.body["indivSongs[]"];
+
+
+	console.log("INDIV SONGS!!!!!", indivSongs);
 	const {venue, date, artistName, save} = req.body;
 	const playlistDetails = {
 		artistName: artistName,
 		venue: venue,
 		date: date,
+		indivSongs: indivSongs,
 	};
+	console.log("PLAYLISTDETAILS!!!!", songs);
 	let songIds = [];
 	let songPreviews = [];
 
@@ -311,6 +316,7 @@ router.post("/playlist", function(req, res) {
 	      	// console.log(data.body.tracks.items[0]);
 	    	if(data !== undefined) {
 	    		console.log("SUCCESS!!!!!!!!!!!!!!!!!!!!!!")
+	    		
 	    		songIds.push("spotify:track:" + data.body.tracks.items[0].id);
 	    		songPreviews.push(data.body.tracks.items[0].preview_url);
     		  	console.log("NAME return for song" + data.body.tracks.items[0].name);
@@ -355,12 +361,15 @@ router.post("/playlist", function(req, res) {
 	//Call function to add tracks to create new playlist and add tracks
 
 	makePlaylist(songIds, req.user, playlistDetails, playlistTitle, save, spotifyApi);
-
-	}
-	);
-
-			
 		
+	}
+
+	);
+	
+	const listeningPlaylistId = req.user.spotify.listeningPlaylistId;
+	const spotifyUserId = req.user.spotify.id;
+
+	res.json({success: true, spotifyUserId: spotifyUserId, listeningPlaylistId: listeningPlaylistId});
 
 });
 
@@ -389,7 +398,6 @@ function makePlaylist(songIds, user, playlistDetails, playlistTitle, save, spoti
 			if(!user.spotify.listeningPlaylistId) {
 				console.log("DOESNT HAVE ID YET, SO CREATE NEW ONES");
 				const playlistTitle = "TEMPORARY PLAYLIST";
-				
 				createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi);
 			}
 
@@ -397,6 +405,8 @@ function makePlaylist(songIds, user, playlistDetails, playlistTitle, save, spoti
 
 				console.log("ALREADY HAS A PLAYLIST>>>OVERWRITING");
 				updatePlaylist(songIds, user, user.spotify.listeningPlaylistId, spotifyApi);
+				// console.log("LISTENING PLAYLIST ID!!!!!", listeningPlaylistId);
+				// return listeningPlaylistId;
 			}
 			// else update setlistst on spotify
 
@@ -415,7 +425,7 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 	// playlistTitle = "TEMPORARY PLAYLIST"; //+ playlistTitle;
 	
 	let {token, name, savedPlaylists, id} = user.spotify;
-	let {artistName, venue, date} = playlistDetails;	
+	let {artistName, venue, date, indivSongs} = playlistDetails;	
 
 	console.log(save);
 
@@ -425,6 +435,7 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 	spotifyApi.createPlaylist(name, playlistTitle)
 		.then(function(data) {
 		    console.log('Ok. Playlist id: ' + data.body.id +  '  was created!');
+
 		    playlistId = data.body.id; //['id'];
 
 		    console.log("PLAYLIST INFO!!!!", data.body.tracks.items);
@@ -441,6 +452,7 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 				user.spotify.listeningPlaylistId = playlistId;
 				user.markModified('spotify.listeningPlaylistId');
 				user.save();
+
 			}
 			else if(save === "true") {
 				console.log("USER WANTS TO SAVE THIS LIST", user.spotify.savedPlaylists);
@@ -452,7 +464,8 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 					artist: artistName,
 					venue: venue,
 					date: date,
-					embedCode: embedCode,
+					indivSongs: indivSongs,
+					// embedCode: embedCode,
 				};
 				console.log("PLAYLIST INFO TO SAVE", playlist)
 				user.spotify.savedPlaylists.push(playlist);
@@ -468,11 +481,16 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 
 		    console.log('Ok. Tracks added!');
 
+
 		}).catch(function(err) {
 		    console.log(err.message);
 		    console.log('Something went wrong!');
 	  	});
 }
+
+
+///////////NEED TO ADD EJS TO MAIN PAGE TO FILL IN DATA ABOUT PLAYLISTS, AND THEN APPEND NEW PLAYLISTS
+///////////AS THEY ARE SAVED.
 
 function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi) {
 
@@ -488,6 +506,7 @@ function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi) {
 
 	spotifyApi.replaceTracksInPlaylist(name, listeningPlaylistId, songIds)
 		.then(function(data) {
+		// console.log("REPLACE TRACKS DATA");
 		console.log('Ok. Tracks replaced!');
 		}).catch(function(err) {
 		console.log(err.message);

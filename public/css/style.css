@@ -57,7 +57,7 @@ h5 {
 section {
 	padding-top: 75px;
 	padding-right: 0;
-	padding-bottom: 90px;
+	padding-bottom: 25px;
 	padding-left: 0;
 }
 
@@ -96,6 +96,28 @@ a {
 	background:#fac42b;
 }
 
+
+.delete-btn {
+	padding: 2px 5px;
+	margin: 0px;
+}
+
+.btn.play-setlist {
+	padding: 2px 5px;
+	margin: 4px 0px 4px 0px;
+	color: black;
+}
+
+.btn.save-setlist {
+	padding: 2px 5px;
+	margin: 4px 0px 4px 0px;
+	color: black;
+}
+
+.setlist-results h4 {
+	color: orange;
+	text-transform: uppercase;
+}
 
 /* NAVBAR */
 
@@ -1056,6 +1078,7 @@ p .searchbox-text {
 	padding:50px 40px 30px 40px;
 	min-height:500px;
 	max-height:500px;
+	text-align: center;
 }
 
 #testimonial .testimonial-left {
@@ -1121,6 +1144,9 @@ div.indiv-setlist h5 {
 	color: #525252;
 }
 
+.owl-item .centered {
+	width: 50%;
+}
 
 #testimonial-carousel img {
 	border:2px solid #ffffff;
