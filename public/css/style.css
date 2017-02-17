@@ -55,13 +55,14 @@ h5 {
 }
 
 section {
-	padding-top: 75px;
+	padding-top: 90px;
 	padding-right: 0;
 	padding-bottom: 25px;
 	padding-left: 0;
 }
 
 input, button, select, textarea {
+	margin-left: 0px;
 	margin: 10px;
 }
 
@@ -73,6 +74,10 @@ input, button, select, textarea {
 	text-transform:uppercase;
 	margin-top: -250px;	
 	
+}
+
+.btn.setlistApi {
+	margin-left: 0px;
 }
 
 
@@ -134,7 +139,7 @@ a {
 	-webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
  	-moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
     transition: background .5s ease-in-out,padding .5s ease-in-out;
-	background-color: rgba(0, 0, 0, 0.32);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 	
 }
@@ -1100,11 +1105,13 @@ div.zebra span{
 	margin-right: 5px;
 }
 
-div.zebra span:nth-child(odd)
+div.zebra span:nth-child(even)
 {
     font-weight: 300;
-    color: #797979;
+    color: #969696;
 }
+
+
 
 div.indiv-setlist h2{
 	color:#333;
@@ -1124,6 +1131,15 @@ div.indiv-setlist h3{
 	/*padding-bottom:5px;*/
 	margin-bottom: 2px;
 	margin-top: 18px;
+}
+
+div.indiv-setlist.venu h3{
+	color:#333;
+	font-family:'Roboto';
+	font-size:40px;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-top: 0px;
 }
 
 div.indiv-setlist h4{

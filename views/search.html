@@ -129,9 +129,11 @@
                     <!-- <div class="col-lg-6 col-lg-offset-6 col-md-6 col-md-offset-6 no-padding"> -->
                       <div class="col-lg-6 col-md-6 no-padding">
                         <div class="testimonial-right">
+                          <div id="processing"></div>
                             <h2 class="hidden">testimonial</h2>
                         
                             <div id="testimonial-carousel">
+
                                 <div id="setlist-player" data-spotify-id="<%= user.spotify.id %>">
                                   <div id="player">
                             
@@ -231,8 +233,7 @@
                         <!-- SCHEDULE TAB -->
                         <ul id="myTab" class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#day1" id="day1-tab" role="tab" data-toggle="tab" aria-controls="day1" aria-expanded="true">YOUR SAVED PLAYLISTS</a></li>
-                            <!-- <li role="presentation" class=""><a href="#day2" role="tab" id="day2-tab" data-toggle="tab" aria-controls="day2" aria-expanded="false">2015</a></li>
-                            <li role="presentation" class=""><a href="#day3" role="tab" id="day3-tab" data-toggle="tab" aria-controls="day3" aria-expanded="false">2016</a></li> -->
+              
                         </ul>
                         
                         <!-- CONTENT -->    
@@ -246,7 +247,7 @@
                                  <% var playlists = user.spotify.savedPlaylists %>
                                    <% playlists.forEach(function(playlist, i){ %>
 
-                                    <div class="panel panel-default">
+                                    <div class="panel panel-default setlist-panel" data-playlist-id="<%= playlist.playlistId %>">
                                     
                                         <!-- Program Heading -->
                                         <div class="panel-heading" role="tab" id="heading<%= i %>">
@@ -285,7 +286,7 @@
                                                     </div>
                                                     
                                                     <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <p class="speaker-name uppercase"><%= playlist.artist %></p>
+                                                      <!-- <p class="speaker-name uppercase"><%= playlist.artist %></p> -->
                                                         <h4><%= playlist.venue %> + <%= playlist.date %></h4>
                                                         <div class='zebra'>
                                                         <% for(j = 0; j < playlist.indivSongs.length; j++) { %>
@@ -297,14 +298,8 @@
                                                         </div>                                                    
                                                         <p><i class="fa fa-lg fa-clock-o"></i> <span class="small"><%= playlist.indivSongs.length %> Songs</span></p>
                                                         <p><i class="fa fa-lg fa-map-marker"></i> <span class="small"><%= playlist.venue %></span></p>
-                                                        <!-- <p><i class="fa fa-lg fa-signal"></i> <span class="small">Industrial Rock</span></p> -->
+                                                        
                                                     </div>
-                                                    
-                                                    <!-- <div class="col-lg-3 col-md-3 col-sm-10">
-                                                      <h5>About Nine Inch Nails</h5>
-                                                        <p class="small">Get more information about this group, visit their official site!</p>
-                                                        <span class="about-speaker"><i class="fa fa-lg fa-globe"></i> <a class="small" href="#">site.com</a></span>
-                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -313,7 +308,7 @@
                                     <% }) %>
                                     
                                 </div>
-                            </div>
+                            </div> <!-- end inv setlist tab -->
                         </div>
                     </div>
                 </div>
@@ -324,9 +319,10 @@
                
         <!-- JAVASCRIPT FILES -->
         
-        <!-- <script src="/client.js"></script>       -->
+        
         <script src="js/jquery-1.11.1.min.js"></script>        
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+        <!-- <script type="js/ajax-loading.js"></script> -->
         <script src="js/main.js"></script>
         <script src="js/wow.min.js"></script>        
         <script src="js/jquery.cbsnet.tools.min.js"></script>

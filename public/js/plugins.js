@@ -316,8 +316,8 @@ lightbox = new Lightbox options
   LightboxOptions = (function() {
 
     function LightboxOptions() {
-      this.fileLoadingImage = 'images/icons/loading.gif';
-      this.fileCloseImage = 'images/icons/close.png';
+      this.fileLoadingImage = 'img/loader.gif';
+      this.fileCloseImage = 'img/plus.png';
       this.resizeDuration = 700;
       this.fadeDuration = 500;
       this.labelImage = "Image";

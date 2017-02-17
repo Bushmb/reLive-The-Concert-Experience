@@ -89,7 +89,7 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 	const async = require("async");
 	request(url, function(error, response, body) {
 
-		//console.log("SETLIST BODY", body);
+		console.log("SETLIST BODY!!!!!!!!!", body);
 		
 		if(!body.includes('not found')) {
 			const data = JSON.parse(body);
@@ -215,61 +215,6 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 
 
 
-// router.post("/playlist", function(req, res) {
-
-// 	var SpotifyWebApi = require('spotify-web-api-node');
-
-// 	const songs = req.body["tracks[]"][0];
-
-// 	// var name = "pearl jam";
-// 	// var song = "better man";
-// 	// credentials are optional
-// 	var spotifyApi = new SpotifyWebApi({
-// 	  clientId : 'fc33a905e5eb4b48930beca47d2d0fa1',
-// 	  clientSecret : '8e92510c66cf4a8e8fd23a67862d9c8e'
-// 	});
-
-// 	spotifyApi.searchTracks(songs)
-// 	  .then(function(data) {
-// 			// console.log('Search tracks by "Alright" in the track name and "Kendrick Lamar" in the artist name', data.body);
-// 			// console.log(data.body.tracks.items);
-// 			// console.log(data.body.tracks.items);
-// 			console.log(data.body.tracks.items[0].preview_url);
-// 			res.redirect(data.body.tracks.items[0].preview_url);
-// 			// res.json(data.body.tracks.items[0].preview_url);
-// 			// res.json(data.body.tracks.items);
-// 			// res.(spotify:track:2B98ljvzqpCVgt5reTHq28);
-// 			// data.body.tracks.items.id
-// 		}, function(err) {
-// 			// res.json(results);
-// 			console.log('Something went wrong!', err);
-// 	});
-
-// });
-
-
-// // 1st para in async.each() is the array of items
-// async.eachSeries(songs,
-//   // 2nd param is the function that each item is passed to
-//   function(item, callback){
-//     // Call an asynchronous function, often a save() to DB
-//     spotifyApi.searchTracks(song)
-//       .then(function(data) {
-//     	console.log("DATA" + data.body.tracks.items);
-//       	songIds.push(data.body.tracks.items[0].id);
-//       	callback();
-    		
-//     	}, function(err) {
-//     		// res.json(results);
-//     		console.log('Something went wrong!', err);
-//     });
-// },
-// // 3rd param is the function to call when everything's done
-// function(err){
-//   // All tasks are done now
-//   console.log(songIds);
-// }
-// );
 
 
 
@@ -358,10 +303,14 @@ router.post("/playlist", function(req, res) {
 			console.log("SPOTIFY USER DETAILS!!", req.user);
 		}
 
-	//Call function to add tracks to create new playlist and add tracks
+		//Call function to add tracks to create new playlist and add tracks
+		var makeArgs = [ songIds, req.user, 
+						 playlistDetails, playlistTitle, 
+						 save, spotifyApi, res ];
 
-	makePlaylist(songIds, req.user, playlistDetails, playlistTitle, save, spotifyApi);
+		makePlaylist(...makeArgs);
 		
+		// makePlaylist(songIds, req.user, playlistDetails, playlistTitle, save, spotifyApi, res);
 	}
 
 	);
@@ -369,9 +318,42 @@ router.post("/playlist", function(req, res) {
 	const listeningPlaylistId = req.user.spotify.listeningPlaylistId;
 	const spotifyUserId = req.user.spotify.id;
 
-	res.json({success: true, spotifyUserId: spotifyUserId, listeningPlaylistId: listeningPlaylistId});
+});
+
+router.delete('/playlist', function(req, res) {
+
+	var playlistToRemove = req.body.playlistToRemove;
+
+	User.findById(req.user.id, function(err, user){
+
+		if(!err) {
+			var filteredArr = user.spotify.savedPlaylists.filter(function(playlist) {
+				return playlist.playlistId !== playlistToRemove;
+			});
+
+			if(filteredArr.length == user.spotify.savedPlaylists.length) {
+				res.status(500).send('Something broke!');
+			}
+			else {
+				user.spotify.savedPlaylists = filteredArr;
+				user.save();
+				res.send("SUCCESS, PLAYLIST DELETED");
+			}
+		
+		}
+		else {
+			res.status(500).send('Something broke!');
+		}
+		
+
+	});
+
+
 
 });
+
+
+
 
 
 ///////// NEED TO ADD PLAYLISTS TO DATABASE AS USER SAVES, AND THEN CHECK ANY NEW PLAYLIST
@@ -383,7 +365,7 @@ router.post("/playlist", function(req, res) {
 
 
 
-function makePlaylist(songIds, user, playlistDetails, playlistTitle, save, spotifyApi) {
+function makePlaylist(songIds, user, playlistDetails, playlistTitle, save, spotifyApi, res) {
 
 	// if false: create playlist
 	if(save === "false") {
@@ -398,13 +380,13 @@ function makePlaylist(songIds, user, playlistDetails, playlistTitle, save, spoti
 			if(!user.spotify.listeningPlaylistId) {
 				console.log("DOESNT HAVE ID YET, SO CREATE NEW ONES");
 				const playlistTitle = "TEMPORARY PLAYLIST";
-				createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi);
+				createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi, res);
 			}
 
 			else {
 
 				console.log("ALREADY HAS A PLAYLIST>>>OVERWRITING");
-				updatePlaylist(songIds, user, user.spotify.listeningPlaylistId, spotifyApi);
+				updatePlaylist(songIds, user, user.spotify.listeningPlaylistId, spotifyApi, res);
 				// console.log("LISTENING PLAYLIST ID!!!!!", listeningPlaylistId);
 				// return listeningPlaylistId;
 			}
@@ -414,11 +396,11 @@ function makePlaylist(songIds, user, playlistDetails, playlistTitle, save, spoti
 	}
 	else if(save === "true") {
 
-		createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi);
+		createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi, res);
 	}
 }
 
-function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi) {
+function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spotifyApi, res) {
 
 	let playlistId;
 
@@ -481,6 +463,7 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 
 		    console.log('Ok. Tracks added!');
 
+		    res.json({success: true, spotifyUserId: id, listeningPlaylistId: user.spotify.listeningPlaylistId, playlistId: playlistId});
 
 		}).catch(function(err) {
 		    console.log(err.message);
@@ -492,9 +475,9 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 ///////////NEED TO ADD EJS TO MAIN PAGE TO FILL IN DATA ABOUT PLAYLISTS, AND THEN APPEND NEW PLAYLISTS
 ///////////AS THEY ARE SAVED.
 
-function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi) {
+function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi, res) {
 
-	let {token, name} = user.spotify;
+	let {token, name, id} = user.spotify;
 
 	spotifyApi.setAccessToken(token);
 
@@ -505,12 +488,16 @@ function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi) {
 	console.log("SONGS", songIds);
 
 	spotifyApi.replaceTracksInPlaylist(name, listeningPlaylistId, songIds)
+		
 		.then(function(data) {
-		// console.log("REPLACE TRACKS DATA");
-		console.log('Ok. Tracks replaced!');
-		}).catch(function(err) {
-		console.log(err.message);
-		console.log('Something went wrong!');
+			res.json({success: true, spotifyUserId: id, listeningPlaylistId: listeningPlaylistId});
+			console.log('Ok. Tracks replaced!');
+		})
+
+		.catch(function(err) {
+			// send response error to front end
+			console.log(err.message);
+			console.log('Something went wrong!');
 		});
 
 }
@@ -533,72 +520,7 @@ function checkUsersPlaylists(user, spotifyApi) {
 		});
 
 }
-
-
-	// 	console.log("FIRST PLAYLIST CREATED");
-	// 	spotifyApi.createPlaylist(name, playlistTitle)
-	// 		.then(function(data) {
-	// 		    console.log('Ok. Playlist id 123 created!');
-	// 		    playlistId = data.body['id'];
-	// 		    console.log("PLAYLIST ID" + playlistId);
-
-	// 		    // Add tracks to the playlist
-	// 		    return spotifyApi.addTracksToPlaylist(name, playlistId, songIds);
-
-	// 		}).then(function(data) {
-	// 			console.log("PLAYLIST CREATED DATA" + data);
-	// 			// save the id to mongo
-
-	// 		    console.log('Ok. Tracks added!');
-
-	// 		}).catch(function(err) {
-	// 		    console.log(err.message);
-	// 		    console.log('Something went wrong!');
-	// 	  	});
-
-	// }
-	// 	// if playlist was already created in mongo
-	// 		// update playlist id with old playlist id
-	// 	// else
-	// 		// create playlist and save id to mongo
-
-
-	// // if true: save playlist directly to Spotify
-
-
-
-	// let playlistId;
-
-	// playlistTitle = "TEMP-" + playlistTitle;
 	
-	// let {token, name} = user.spotify;
-
-	// spotifyApi.setAccessToken(token);
-
-	
-		
-
-	//   	// save the old playlist id in mongo
-
-	//   	let oldPlaylistId = playlistId;
-	// }
-
-	// else {
-	// 	console.log("UPDATING PLAYLIST");
-	// 	spotifyApi.replaceTracksInPlaylist(name, oldPlaylistId, songIds)
-
-	// 		  .then(function(data) {
-
-	// 		    console.log('Ok. Tracks replaced!');
-	// 		  }).catch(function(err) {
-	// 		    console.log(err.message);
-	// 		    console.log('Something went wrong!');
-	// 		  });
-
-	// }  	
-
-	
-
 
 module.exports = router;
 

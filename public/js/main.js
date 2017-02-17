@@ -94,67 +94,6 @@ jQuery(document).ready(function($) {
     	}
     	
     });  
-	 
-	  
-	// //COUNTDOWN TIMER
-	// var newYear = new Date(); 
- //    newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1); 
- //    $('#countdown').countdown({until: new Date(2017, 3-1, 18)}); // enter event day 
-    
- //    $('#removeCountdown').toggle(
- //        function() {
- //            $(this).text('Re-attach'); 
- //            $('#defaultCountdown').countdown('destroy'); 
- //        }, 
- //        function() { 
- //            $(this).text('Remove'); 
- //            $('#defaultCountdown').countdown({until: newYear}); 
- //        }
- //    );
-	  
-	
-	// //MAGNIFIC POPUP LOAD CONTENT VIA AJAX
-	// $('.html-popup').magnificPopup({type: 'ajax'});
- 	
-	// //MAGNIFIC POPUP IMAGE
-	// $('.image-popup').magnificPopup({
-	// 	type:'image',
-	// 	gallery: {
-	// 		enabled: true,
-	// 		navigateByImgClick: true,
-	// 		preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-	// 	},
-		
-	// });
-    
- //    //LOAD MORE
- //    $('#list-speaker li:lt(4)').show();
-    
- //    $('#loadmore').on("click", function () {
- //    	$('#list-speaker li:lt(8)').fadeIn();
- //    	$('#list-speaker li:lt(8)').show();		
- //    });
-	
-	
-    
- //    //FAQ TOGGLE 
- //    $('.faqs dd').hide();
- //    $('.faqs dt').on({
- //        click : function(){ $(this).next().slideToggle('normal'); },
- //        mouseenter : function(){ $(this).addClass('hover'); },
- //        mouseleave : function(){ $(this).removeClass('hover'); }
- //    });
-	  
-	// //OWLCAROUSEL HOTEL CAROUSEL
-	// var owl = $("#hotel-carousel");
- 
-	//   owl.owlCarousel({
-	// 	  autoPlay: false,
-	// 	  itemsCustom : [ [0, 1], [450, 1], [600, 3], [700, 3], [1000, 3], [1200, 3], [1600, 3] ],
-	// 	  pagination : false,
-	// 	  navigation : true,
-	// 	  navigationText : ['<i class="pe-4x pe-7s-angle-left pe-border"></i>','<i class="pe-4x  pe-7s-angle-right pe-border"></i>'],
-	//   });
 	  
 	//OWLCAROUSEL FUNFACT CAROUSEL
 	var owl = $("#infodata-carousel");
@@ -173,54 +112,6 @@ jQuery(document).ready(function($) {
 		  navigationText : ['<i class="pe-4x pe-7s-angle-left pe-border"></i>','<i class="pe-4x  pe-7s-angle-right pe-border"></i>'],
 	  });
 	  
-	//   //OWLCAROUSEL PRICE TABLE CAROUSEL
-	// var owl = $("#price-carousel");
- 
-	//   owl.owlCarousel({
-	// 	  itemsCustom : [
-	// 		[0, 1],
-	// 		[450, 1],
-	// 		[600, 2],
-	// 		[700, 3],
-	// 		[1000, 3],
-	// 		[1200, 3],
-	// 	  ],
-	// 	  pagination : false,
-	// 	  navigation : true,
-	// 	  navigationText : ['<i class="pe-4x pe-7s-angle-left pe-border"></i>','<i class="pe-4x  pe-7s-angle-right pe-border"></i>'],
-	//   });
-	
-	// //OWLCAROUSEL TESTIMONIAL CAROUSEL
-	// var owl = $("#testimonial-carousel");
- 
-	//   owl.owlCarousel({
-	// 	  navigation : false, // Show next and prev buttons
-	// 	  slideSpeed : 300,
-	// 	  paginationSpeed : 400,
-	// 	  singleItem:true,
-	// 	  transitionStyle : "fade"
-	//   });
-	
-	// //OWLCAROUSEL SPONSORS CAROUSEL
-	// var owl = $("#sponsors-carousel");
- 
-	//   owl.owlCarousel({
-		  
-	// 	  autoPlay: false,
-	// 	  itemsCustom : [
-	// 		[0, 1],
-	// 		[450, 1],
-	// 		[600, 3],
-	// 		[700, 3],
-	// 		[1000, 3],
-	// 		[1200, 5],
-	// 		[1600, 5]
-	// 	  ],
-	// 	  pagination : false,
-	// 	  navigation : true,
-	// 	  navigationText : ['<i class="pe-4x pe-7s-angle-left pe-border"></i>','<i class="pe-4x  pe-7s-angle-right pe-border"></i>'],
-	//   });
-	
 	// INFO DATA
 	 $('.number').counterUp({
 		delay: 10,
@@ -230,83 +121,7 @@ jQuery(document).ready(function($) {
 	//FIX HOVER EFFECT ON IOS DEVICES
 	document.addEventListener("touchstart", function(){}, true);
 	
-	
-	
-	
-	// // CONTACT FORM
-	// $("#ajax-contact-form").submit(function() {
-	// 	var str = $(this).serialize();		
-	// 	$.ajax({
-	// 		type: "POST",
-	// 		url: "contact_form/contact_process.php",
-	// 		data: str,
-	// 		success: function(msg) {
-	// 			// Message Sent - Show the 'Thank You' message and hide the form
-	// 			if(msg == 'OK') {
-	// 				var result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
-	// 				$("#fields").hide();
-	// 			} else {
-	// 				var result = msg;
-	// 			}
-	// 			$('#note').html(result);
-	// 		}
-	// 	});
-	// 	return false;
-	// });
-	// $('#ajax-contact-form .shortcode_button').on('click', function() {  
-	// 	setTimeout(block_height, 100);
-	// });
-	
-	
-	
-	
-	// //GOOGLE MAPS
-		  
-	// // Creating a LatLng object containing the coordinate for the center of the map
-	// var latlng = new google.maps.LatLng(40.801485408197856, -73.96745953467104);
-	  
-	// // Creating an object literal containing the properties we want to pass to the map  
-	// var options = {  
-	// 	zoom: 14, // This number can be set to define the initial zoom level of the map
-	// 	center: latlng,
-	// 	scrollwheel: false,
-	// 	styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}],
-	// 	mapTypeId: google.maps.MapTypeId.ROADMAP, // This value can be set to define the map type ROADMAP/SATELLITE/HYBRID/TERRAIN
-	// 	disableDefaultUI: true
-	// };  
-	// // Calling the constructor, thereby initializing the map  
-	// var map = new google.maps.Map(document.getElementByClass('map-canvas'), options);  
-	
-	// // Define Marker properties
-	// var image = new google.maps.MarkerImage('img/map-logo.png',
-	// 	// This marker is 129 pixels wide by 42 pixels tall.
-	// 	new google.maps.Size(125, 75),
-	// 	// The origin for this image is 0,0.
-	// 	new google.maps.Point(0,0),
-	// 	// The anchor for this image is the base of the flagpole at 18,42.
-	// 	new google.maps.Point(18, 42)
-	// );
-	
-	// // Add Marker
-	// var marker1 = new google.maps.Marker({
-	// 	position: new google.maps.LatLng(40.801485408197856, -73.96745953467104), 
-	// 	map: map,		
-	// 	icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	// });	
-	
-	// // Add listener for a click on the pin
-	// google.maps.event.addListener(marker1, 'click', function() {  
-	// 	infowindow1.open(map, marker1);  
-	// });
-		
-		
-	// // Create information window
-	// function createInfo(title, content) {
-	// 	return '<div class="infowindow"><h4>'+ title +'</h4>'+content+'</div>';
-	// } 
-
 });
-
 
 $(window).load(function(){
 		
@@ -316,7 +131,6 @@ $(window).load(function(){
     //PRELOADER
     $('#preload').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
 	
-	
 	//CUSTOM TOOLBAR
 	 $("#content").mCustomScrollbar({
         theme: "dark-3",
@@ -325,69 +139,6 @@ $(window).load(function(){
 
 });
 
-// // REGISTER FORM FUNCTION
-// var contact_send = function(){
-	
-// 	'use strict';
-	
-// 	var name  = $("#name").val();
-// 	var email = $("#email").val();
-// 	var phone = $("#phone").val();
-// 	var type  = $("#type").val();
-	
-// 		 if ( name=="" ){ alert("name area is empty!"); $("#name").focus(); }
-// 	else if ( email=="" ){ alert("email address area is empty!"); $("#email").focus(); }
-// 	else if ( phone=="" ){ alert("phone number area is empty!"); $("#phone").focus(); }
-// 	else if ( type=="" ){ alert("register type isn't selected!"); $("#type").focus(); }
-// 	else {
-// 		$.post("contact.send.php", { name:name, email:email, phone:phone, type:type }, function( result ){
-// 			if ( result=="SUCCESS" ){
-// 				alert("Your contact form is sent.");
-// 				setTimeout(function(){
-// 					$("#name").val("");
-// 					$("#email").val("");
-// 					$("#phone").val("");
-// 					$("#type").val("");
-// 				}, 3000);
-// 			} else {
-// 				alert("Your contact form isn't sent. Please check fields and try again.");
-// 			}
-// 		});
-// 	}
-
-// };
-
-	/* NEWSLETTER FORM FUNCTION */
-	var newsletter_send = function(){
-	
-		'use strict';
-		
-		var email 	= $("#newsletter_email").val();
-		if ( email=="" ){ alert("Your email address is empty!"); $("#newsletter_email").focus(); }
-		else {
-			$.post("newsletter.send.php", { email:email }, function( result ){
-				
-				console.log( result );
-				
-				if ( result=="SUCCESS" ){
-					alert("Thank you. Your email is added to our database.");
-					setTimeout(function(){ $("#newsletter_email").val(""); }, 3000);
-				}
-				
-				else if ( result=="EXIST" ){
-					alert("Error. Your email address is already exist our database.");
-					$("#newsletter_email").focus();
-				}
-				
-				else {
-					alert("Error. Your email isn't added to our database.");
-					$("#newsletter_email").focus();
-				}
-				
-			});
-		}
-	
-	};
 
 	function watchPlaySetlist() {
 
@@ -413,7 +164,7 @@ $(window).load(function(){
 							        "<figure class='effect-ming'>" + 
 							            "<img class='img-responsive' src='" + data[i].thumbnail + "' alt=''/>" +
 							              "<figcaption>" +
-							                  "<span><a href='" + data[i].url + "' target='_blank'><img class='img-responsive' src=img/plus.png alt=''></a></span>" +
+							                  "<span><a href='" + data[i].url + "' target='_blank' data-lightbox='photos'><img class='img-responsive' src=img/plus.png alt=''></a></span>" +
 							              "</figcaption>" +      
 							        "</figure>" + 
 					            "</div>" + 
@@ -437,7 +188,7 @@ $(window).load(function(){
 						
 						toAppend += "<div class='indiv-setlist " + data[i].id + "'>" + 
 						  "<h3 class='artist-name'>" + data[i].artistName + "</h3>" + 
-						  "<h3 class='venue'>" + data[i].venueName + "</h3>" +
+						  "<h4 class='venue'>" + data[i].venueName + "</h4>" +
 						  "<h4 class='date'>" + data[i].eventDate + "</h4>" +
 						  "<h5>" + data[i].songs.length + " songs </h4>" + 
 						  "<div class='zebra'>";
@@ -492,6 +243,9 @@ $(window).load(function(){
 		     
 		    	$.get(url, function(data) {
 		    		let toAppend = '';
+
+		    		toAppend += "<p>Choose from one of the artists below who match your search</p>"
+
 		    		for(i = 0; i < data.length; i++) {
 		    			const artistName = data[i].artistName;
 		    			const artist = artistName.split(' ').join('+');
@@ -510,11 +264,44 @@ $(window).load(function(){
 		 });
 
 		$(".setlist-results").on("click", ".play-setlist", function(event) {
+			$('#player').html('<img src="img/ajax-loading.gif"> loading...');
 			setlistSpotify(this, false);
 		});
 
 		$(".setlist-results").on("click", ".save-setlist", function(event){
+			$('#player').html('<img src="img/ajax-loading.gif"> loading...');
 			setlistSpotify(this, true);
+		});
+
+
+		$('.panel-group').on('click', '.delete-btn', function(){
+		   $(this).closest('.setlist-panel').remove();
+
+
+		   let playlistToRemove = $(this).closest('.setlist-panel').attr("data-playlist-id");
+
+		   // playlistToRemove = playlistToRemove.substring(1, 8);
+
+		   console.log("PLAYLIST TO REMOVE", playlistToRemove);
+
+		   $.ajax({
+		       type: "DELETE",
+		       url: "/search/playlist",
+		       data: {
+			   	  	playlistToRemove
+		    	},
+		    	success: function(data) {
+		    	      console.log("removed from db", data);
+		    	},
+		    	fail: function(err) {
+		    		console.log(err);
+		    		//add dom notification to show error
+		    	}
+		    	
+		   });
+		   
+
+
 		});
 	}
 
@@ -556,13 +343,44 @@ function setlistSpotify(clickHandler, save) {
 		  	indivSongs: indivSongs,
 		  	save: save
 	 	},
+	 	// beforeSend : function() {
+	  //       loading.open();
+	  //   },
 	 	success: function(data) {
 	 	      let toAppend = "<p>HIT THE ARROW BELOW TO START PLAYING</p>";
 	 	      toAppend += "<iframe src='https://embed.spotify.com/?uri=spotify%3Auser%3A" + data.spotifyUserId + "%3Aplaylist%3A" + data.listeningPlaylistId + "' width='320' height='400' frameborder='0' allowtransparency='true'></iframe>";
-	 	      console.log("DATA FROM SPOTIFY AJAX", data);
-	 	      console.log("BACK FROM SPOTIFY AJAX");
 	 	      $("#player").html(toAppend);
-	 	}
+	 	      console.log("DATA BACK FROM SAVE CALL", data)
+	 	      const spotifyId = data.spotifyUserId;
+	 	      const playlistId = data.playlistId;
+	 	      if(save == true) {
+	 	      	 addSavedListToDOM(playlistId, venue, date, artistName, indivSongs, spotifyId);
+	 	      }
+	 	},
+	 
 	});
 
+}
+
+function addSavedListToDOM(playlistId, venue, date, artistName, indivSongs, spotifyId) {
+
+	let toAppend = '';
+	let songHTML = '';
+	indivSongs.forEach(function(song) {
+		songHTML += `<span class='song-name'>${song}</span>`;
+	});
+
+	console.log("ADDED TO DOM WITH PLAYLISTID", playlistId);
+
+	toAppend += `<div class='panel panel-default setlist-panel' data-playlist-id='${playlistId}'><div class='panel-heading' role='tab' id='heading${playlistId}'><div class='row'>
+                    <div class='col-lg-2 col-md-2 col-sm-2'><p class='date'>${date}</p></div><div class='col-lg-8 col-md-8 col-sm-8'><h4 class='panel-title'>
+                    <a data-toggle='collapse' data-parent='#accordion' href='#Program${playlistId}' aria-expanded='true' aria-controls='Program${playlistId}'>${artistName} - ${venue}</a>
+                    </h4></div><div class='col-lg-2 col-md-2 col-sm-2'><button class='btn delete-btn'>DELETE</button></div></div></div>
+                    <div id='Program${playlistId}' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading${playlistId}'><div class='panel-body'><div class='row'>
+                    <div class='col-lg-4 col-md-4 col-sm-4'><iframe src='https://embed.spotify.com/?uri=spotify%3Auser%3A${spotifyId}%3Aplaylist%3A${playlistId}' width='300' height='380' frameborder='0' allowtransparency='true'></iframe>
+                    </div><div class='col-lg-7 col-md-7 col-sm-10'><p class='speaker-name uppercase'>${artistName}</p><h4>${venue} + ${date}</h4> <div class='zebra'>${songHTML}</div>
+                    <p><i class='fa fa-lg fa-clock-o'></i> <span class='small'>${indivSongs.length} Songs</span></p> <p><i class='fa fa-lg fa-map-marker'></i> <span class='small'>${venue}</span></p>                                   
+                    </div></div></div></div></div></div>`;  
+    $('#accordion1').append(toAppend);                                                  
+               
 }
