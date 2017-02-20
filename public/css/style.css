@@ -1105,6 +1105,13 @@ div.zebra span{
 	margin-right: 5px;
 }
 
+div.zebra-saved span:nth-child(even)
+{
+    font-weight: 300;
+    color: #2b2b2b;
+}
+
+
 div.zebra span:nth-child(even)
 {
     font-weight: 300;

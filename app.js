@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var dotenv = require('dotenv');
+var http = require("http");
+
 
 var port = process.env.PORT || 8080;
 
@@ -88,6 +90,14 @@ app.use(function(err, req, res, next) {
 
 app.listen(port, () => console.log(
   `Your app is listening on port ${port}`));
+
+
+//Keep Heroku app awake by pinging app every 5 minutes
+
+setInterval(function() {
+    http.get("http://relive-concerts.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
+
 
 module.exports = app;
 

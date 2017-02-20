@@ -221,12 +221,9 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 
 router.post("/playlist", function(req, res) {
 
-
 	const SpotifyWebApi = require('spotify-web-api-node');
-
 	const songs = req.body["tracks[]"];
 	const indivSongs = req.body["indivSongs[]"];
-
 
 	console.log("INDIV SONGS!!!!!", indivSongs);
 	const {venue, date, artistName, save} = req.body;
@@ -237,12 +234,14 @@ router.post("/playlist", function(req, res) {
 		indivSongs: indivSongs,
 	};
 	console.log("PLAYLISTDETAILS!!!!", songs);
+
 	let songIds = [];
 	let songPreviews = [];
+	let songDuration = 0;
 
 	const playlistTitle = artistName + " - " + venue + " - " + date;
-	console.log(playlistTitle);
 
+	console.log(playlistTitle);
 
 	console.log("HIT PLAYLIST ROUTE")
 	const spotifyApi = new SpotifyWebApi({
@@ -261,6 +260,10 @@ router.post("/playlist", function(req, res) {
 	      	// console.log(data.body.tracks.items[0]);
 	    	if(data !== undefined) {
 	    		console.log("SUCCESS!!!!!!!!!!!!!!!!!!!!!!")
+
+	    		console.log("DURATION!!", data.body.tracks.items[0]["duration_ms"]);
+	    		songDuration += data.body.tracks.items[0]["duration_ms"];
+	    		console.log("TOTAL DURATION", songDuration);
 	    		
 	    		songIds.push("spotify:track:" + data.body.tracks.items[0].id);
 	    		songPreviews.push(data.body.tracks.items[0].preview_url);
@@ -284,7 +287,6 @@ router.post("/playlist", function(req, res) {
 		console.log("SPOTIFY FOUND --------")
 		console.log(songIds.length);
 		console.log(songIds);
-		console.log(songPreviews);
 		console.log("----------------------")
 
 	
@@ -303,20 +305,24 @@ router.post("/playlist", function(req, res) {
 			console.log("SPOTIFY USER DETAILS!!", req.user);
 		}
 
+		var playlistLength = new Date(songDuration);
+		var playlistMinutes = playlistLength.getMinutes();
+		
+		console.log("PLAYLIST MINUTES", playlistMinutes);
+
 		//Call function to add tracks to create new playlist and add tracks
-		var makeArgs = [ songIds, req.user, 
+		var makeArgs = [ songIds, songDuration, req.user, 
 						 playlistDetails, playlistTitle, 
 						 save, spotifyApi, res ];
 
 		makePlaylist(...makeArgs);
 		
-		// makePlaylist(songIds, req.user, playlistDetails, playlistTitle, save, spotifyApi, res);
 	}
 
 	);
 	
-	const listeningPlaylistId = req.user.spotify.listeningPlaylistId;
-	const spotifyUserId = req.user.spotify.id;
+	// const listeningPlaylistId = req.user.spotify.listeningPlaylistId;
+	// const spotifyUserId = req.user.spotify.id;
 
 });
 
@@ -339,16 +345,12 @@ router.delete('/playlist', function(req, res) {
 				user.save();
 				res.send("SUCCESS, PLAYLIST DELETED");
 			}
-		
 		}
 		else {
 			res.status(500).send('Something broke!');
 		}
-		
 
 	});
-
-
 
 });
 
@@ -365,7 +367,7 @@ router.delete('/playlist', function(req, res) {
 
 
 
-function makePlaylist(songIds, user, playlistDetails, playlistTitle, save, spotifyApi, res) {
+function makePlaylist(songIds, songDuration, user, playlistDetails, playlistTitle, save, spotifyApi, res) {
 
 	// if false: create playlist
 	if(save === "false") {
@@ -471,10 +473,6 @@ function createPlaylist(songIds, user, save, playlistDetails, playlistTitle, spo
 	  	});
 }
 
-
-///////////NEED TO ADD EJS TO MAIN PAGE TO FILL IN DATA ABOUT PLAYLISTS, AND THEN APPEND NEW PLAYLISTS
-///////////AS THEY ARE SAVED.
-
 function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi, res) {
 
 	let {token, name, id} = user.spotify;
@@ -496,6 +494,7 @@ function updatePlaylist(songIds, user, listeningPlaylistId, spotifyApi, res) {
 
 		.catch(function(err) {
 			// send response error to front end
+			res.json({success: false, msg: 'Unable to save Playlist'});
 			console.log(err.message);
 			console.log('Something went wrong!');
 		});

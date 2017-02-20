@@ -198,15 +198,16 @@
                                     </div>
                                 </div>
                                 
-                                <!-- <div class="item">
-                                    <i class="pe pe-4x pe-7s-display2"></i>
+                                <div class="item">
+                                    <i class="pe pe-4x pe-7s-clock"></i>
+                                   
                                     <div class="desc">
                                         <p class="number">62</p>
-                                        <p class="description">concerts</p>
+                                        <p class="description">minutes  </p>
                                     </div>
                                 </div>
                                 
-                                <div class="item">
+                               <!--  <div class="item">
                                     <i class="pe pe-va pe-4x pe-7s-id"></i>
                                     <div class="desc">
                                         <p class="number">30.000</p>
@@ -230,7 +231,7 @@
                         <h2 class="uppercase">SETLISTS</h2>
                         <p class="lead">Here are your saved setlists.</p>
                         
-                        <!-- SCHEDULE TAB -->
+                        
                         <ul id="myTab" class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#day1" id="day1-tab" role="tab" data-toggle="tab" aria-controls="day1" aria-expanded="true">YOUR SAVED PLAYLISTS</a></li>
               
@@ -239,7 +240,7 @@
                         <!-- CONTENT -->    
                         <div id="myTabContent" class="tab-content">
                             
-                            <!-- DAY 1 -->
+                            
                             <div role="tabpanel" class="tab-pane fade active in" id="day1" aria-labelledby="day1-tab">
                                 <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
                                 
@@ -263,7 +264,6 @@
                                                     <h4 class="panel-title">
                                                         <a data-toggle="collapse" data-parent="#accordion" href="#Program<%= i %>" aria-expanded="true" aria-controls="Program<%= i %>">
                                                        <%= playlist.artist + " - " + playlist.venue %>
-                                                      <!--  Nine Inch Nails at White River Ampitheater -->
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -288,7 +288,7 @@
                                                     <div class="col-lg-7 col-md-7 col-sm-10">
                                                       <!-- <p class="speaker-name uppercase"><%= playlist.artist %></p> -->
                                                         <h4><%= playlist.venue %> + <%= playlist.date %></h4>
-                                                        <div class='zebra'>
+                                                        <div class='zebra-saved'>
                                                         <% for(j = 0; j < playlist.indivSongs.length; j++) { %>
                                                                         
                                                             <span class='song-name'><%= playlist.indivSongs[j] %></span>

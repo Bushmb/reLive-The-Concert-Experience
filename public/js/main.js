@@ -1,11 +1,13 @@
-jQuery(document).ready(function($) {
+/* jshint esversion: 6 */
+
+$(document).ready(function($) {
    
    'use strict';
    
    //REV SLIDER
    watchPlaySetlist();
 
-   jQuery('.tp-banner').show().revolution(
+   $('.tp-banner').show().revolution(
 	{
 		dottedOverlay:"none",
 		delay:5000,
@@ -264,12 +266,12 @@ $(window).load(function(){
 		 });
 
 		$(".setlist-results").on("click", ".play-setlist", function(event) {
-			$('#player').html('<img src="img/ajax-loading.gif"> loading...');
+			$('#player').html('<img src="img/ajax-loading.gif"> <p>Please wait..</p>');
 			setlistSpotify(this, false);
 		});
 
 		$(".setlist-results").on("click", ".save-setlist", function(event){
-			$('#player').html('<img src="img/ajax-loading.gif"> loading...');
+			$('#player').html('<img src="img/ajax-loading.gif"> <p>Please wait..</p>');
 			setlistSpotify(this, true);
 		});
 
@@ -343,20 +345,22 @@ function setlistSpotify(clickHandler, save) {
 		  	indivSongs: indivSongs,
 		  	save: save
 	 	},
-	 	// beforeSend : function() {
-	  //       loading.open();
-	  //   },
 	 	success: function(data) {
-	 	      let toAppend = "<p>HIT THE ARROW BELOW TO START PLAYING</p>";
-	 	      toAppend += "<iframe src='https://embed.spotify.com/?uri=spotify%3Auser%3A" + data.spotifyUserId + "%3Aplaylist%3A" + data.listeningPlaylistId + "' width='320' height='400' frameborder='0' allowtransparency='true'></iframe>";
-	 	      $("#player").html(toAppend);
-	 	      console.log("DATA BACK FROM SAVE CALL", data)
-	 	      const spotifyId = data.spotifyUserId;
-	 	      const playlistId = data.playlistId;
-	 	      if(save == true) {
-	 	      	 addSavedListToDOM(playlistId, venue, date, artistName, indivSongs, spotifyId);
-	 	      }
+	 		const spotifyId = data.spotifyUserId;
+	 		const playlistId = data.playlistId;
+
+	 	    let toAppend = "<p>HIT THE ARROW BELOW TO START PLAYING</p>";
+	 	    toAppend += "<iframe src='https://embed.spotify.com/?uri=spotify%3Auser%3A" + data.spotifyUserId + "%3Aplaylist%3A" + data.listeningPlaylistId + "' width='320' height='400' frameborder='0' allowtransparency='true'></iframe>";
+	 	    $("#player").html(toAppend);
+	        console.log("DATA BACK FROM SAVE CALL", data)
+	 	      
+   	        if(save == true) {
+	 	     	addSavedListToDOM(playlistId, venue, date, artistName, indivSongs, spotifyId);
+	 	    }
 	 	},
+	 	fail: function(data) {
+	 		$('#player').preppend("<p style='color:red'>Sorry, couldnt save this setlist</p>");
+	 	}
 	 
 	});
 
@@ -378,7 +382,7 @@ function addSavedListToDOM(playlistId, venue, date, artistName, indivSongs, spot
                     </h4></div><div class='col-lg-2 col-md-2 col-sm-2'><button class='btn delete-btn'>DELETE</button></div></div></div>
                     <div id='Program${playlistId}' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading${playlistId}'><div class='panel-body'><div class='row'>
                     <div class='col-lg-4 col-md-4 col-sm-4'><iframe src='https://embed.spotify.com/?uri=spotify%3Auser%3A${spotifyId}%3Aplaylist%3A${playlistId}' width='300' height='380' frameborder='0' allowtransparency='true'></iframe>
-                    </div><div class='col-lg-7 col-md-7 col-sm-10'><p class='speaker-name uppercase'>${artistName}</p><h4>${venue} + ${date}</h4> <div class='zebra'>${songHTML}</div>
+                    </div><div class='col-lg-7 col-md-7 col-sm-10'><p class='speaker-name uppercase'>${artistName}</p><h4>${venue} + ${date}</h4> <div class='zebra-saved'>${songHTML}</div>
                     <p><i class='fa fa-lg fa-clock-o'></i> <span class='small'>${indivSongs.length} Songs</span></p> <p><i class='fa fa-lg fa-map-marker'></i> <span class='small'>${venue}</span></p>                                   
                     </div></div></div></div></div></div>`;  
     $('#accordion1').append(toAppend);                                                  
