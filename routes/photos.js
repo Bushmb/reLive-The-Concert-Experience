@@ -30,8 +30,8 @@ router.get('/:artistName', function(req, res, next)	{
 			
 			console.log("FLICKR DATA", photoList);
 
-			const photoResultUrl = "http://farm" + photoList.farm + ".static.flickr.com/" + photoList.server + "/"+photoList.id + "_"+photoList.secret + "_b.jpg";
-			const thumbnailUrl = "http://farm" + photoList.farm + ".static.flickr.com/" + photoList.server + "/"+photoList.id + "_"+photoList.secret + "_n.jpg";
+			const photoResultUrl = "https://farm" + photoList.farm + ".static.flickr.com/" + photoList.server + "/"+photoList.id + "_"+photoList.secret + "_b.jpg";
+			const thumbnailUrl = "https://farm" + photoList.farm + ".static.flickr.com/" + photoList.server + "/"+photoList.id + "_"+photoList.secret + "_n.jpg";
 			const id = photoList.id
 
 			const photoInfo = {
