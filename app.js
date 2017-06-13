@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var dotenv = require('dotenv');
 var http = require("http");
 
-
 var port = process.env.PORT || 8080;
 
 var passport = require('passport');

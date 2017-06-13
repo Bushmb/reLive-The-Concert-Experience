@@ -222,6 +222,7 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 router.post("/playlist", function(req, res) {
 
 	const SpotifyWebApi = require('spotify-web-api-node');
+	const token = req.user.spotify.token;
 	const songs = req.body["tracks[]"];
 	const indivSongs = req.body["indivSongs[]"];
 
@@ -249,6 +250,7 @@ router.post("/playlist", function(req, res) {
 	  clientSecret: process.env.SPOTIFY_CLIENTSECRET
 	});
 
+	spotifyApi.setAccessToken(token);
 	// 1st para in async.each() is the array of items
 	// 2nd param is the function that each item is passed to
 	async.eachSeries(songs, function(song, callback){
