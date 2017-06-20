@@ -58,7 +58,7 @@ module.exports = function(passport) {
     });
   }));
 
-  // Use the SpotifyStrategy within Passport.
+  //   Use the SpotifyStrategy within Passport.
   //   Strategies in Passport require a `verify` function, which accept
   //   credentials (in this case, an accessToken, refreshToken, and spotify
   //   profile), and invoke a callback with a user object.
@@ -69,9 +69,9 @@ module.exports = function(passport) {
     callbackURL: configAuth.spotifyAuth.callbackURL,
     },
     function(accessToken, refreshToken, profile, done) {
-      console.log("REAL ACCESS TOKEN!!!!!" + accessToken);
+
       process.nextTick(function() {
-        console.log(profile.photos[0]);
+  
         User.findOne({ 'spotify.id': profile.id }, function(err, user) {
           if (err)
             return done(err);
@@ -84,16 +84,12 @@ module.exports = function(passport) {
             })
 
            } else {
-            console.log("WORKING???");
-            console.log("PROFILE", profile);
             var newUser = new User();
             newUser.spotify.id = profile.id;
             newUser.spotify.token = accessToken;
             newUser.spotify.name = profile.username;
             newUser.spotify.email = profile.emails[0].value;
             newUser.spotify.photo = profile.photos[0];
-            // newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
-            // newUser.facebook.email = (profile.emails[0].value || '').toLowerCase();
             newUser.save(function(err) {
               if (err)
                 throw err;
@@ -101,10 +97,10 @@ module.exports = function(passport) {
             });
           }
         });
+
       });
+
   }));
-
-
 
 };
 

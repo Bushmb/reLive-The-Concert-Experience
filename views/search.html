@@ -1,58 +1,8 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
-<head>
-      
-        <title>reLIVE - The Concert Experience</title>
-        
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="reLIVE - The Concert Experience">
-        <meta name="author" content="bushmb">
-        
-        <!-- MOBILE DEVICE SETTING -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-     
-
-        <!-- CSS FILES -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/style.css">        
-        <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
-        <link rel="stylesheet" href="css/helper.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/font-awesome.css">
-        <link rel="stylesheet" href="css/font.css">
-        <!-- <link rel="stylesheet" href="css/grid-data-columns.css"> -->
-        <!-- <link rel="stylesheet" href="css/jquery.countdown.css"> -->
-        <!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
-        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/owl.theme.css">        
-        <link rel="stylesheet" href="css/owl.transitions.css">
-        <!-- <link rel="stylesheet" href="css/revolution.css"> -->
-        <!-- <link rel="stylesheet" href="css/price-tables.css"> -->
-        <!-- <link rel="stylesheet" href="css/revolution-extralayers.css"> -->
-        <link rel="stylesheet" href="css/audio-player.css">        
-        
-        
-        <!-- GOOGLE FONTS  -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-        
-             
-        <!-- FAVICON -->
-
-        <link rel="shortcut icon" href="favicon.ico">
-
-  </head>
-  <body>
-
+<% include partials/header.html %>
 
           <!-- MENU NAVIGATION -->
           <nav id="nav-primary" class="navbar navbar-custom">   
                 <div class="container">
-                  
                   <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
                       <span class="sr-only">Toggle navigation</span>
@@ -62,87 +12,67 @@
                     </button>
                     <a href="index.html"><img src="img/logo.png" alt="logo" height="40"></a>
                   </div>
-          
                   <div class="collapse navbar-collapse" id="nav">
                     <ul class="nav navbar-nav navbar-right uppercase">
                       <li><a data-toggle="elementscroll" href="#search_section">Search</a></li>
+                      <li><a data-toggle="elementscroll" href="#testimonial">Player</a></li>
                       <li><a data-toggle="elementscroll" href="#photos">Photos</a></li>
                       <li><a data-toggle="elementscroll" href="#concerts">Setlists</a></li>
-                      <!-- <li><a data-toggle="elementscroll" href="#venue">Accomodations</a></li>
-                      <li><a data-toggle="elementscroll" href="#pricing-table">Register</a></li>
-                      <li><a data-toggle="elementscroll" href="#gallery">Gallery</a></li> -->               
-                      <!-- <li><a data-toggle="elementscroll" href="#contact-form">Contact</a></li> -->
                       <li><a data-toggle="elementscroll" href="/logout">Sign Out</a></li>
                     </ul>
                   </div>
                 </div><!-- end menu navigation --> 
               </nav>
 
-
        <!-- SEARCH SECTION -->
               <section id="search_section">
                   <div class="container">
-                      
-                          <!-- <div id="form-fields"> -->
-                             <!-- <div id="fields">  -->
-                              <div class="row search-box">          
-                                  <div class="col-md-8 col-sm-8">
-                                      <p class="searchbox-text">Enter a Band Name to find their recent setlists</p>
-                                     <!-- <div>
-                                          <input id="search" type="search" placeholder="Band Name" />
-                                      </div> -->
-                                      <input class="inp" type="search" placeholder="Band Name" id="search" />
-                                      <!-- <i class="fa-form fa-user form-control-feedback"></i> -->
-                                      <div id="results"></div>
-                                  </div>
-                                  <div class="clear"></div>
-
-                              </div> 
-                              <!-- </div> -->
-                          <!-- </div>  -->   
-                      <div class="row">    
-                          <div class="col-lg-12 text-center" id="search-result-title">
-                              
+                
+                      <div class="row search-box">          
+                          <div class="col-md-8 col-sm-8">
+                              <p class="searchbox-text">Enter a Band Name to find their recent setlists</p>
+                              <input class="inp" type="search" placeholder="Band Name" id="search" />
+                              <div id="results"></div>
                           </div>
-                          <!-- <div id="results"></div> -->
+                          <div class="clear"></div>
+
+                      </div> 
+                      <div class="row">    
+                          <div class="col-lg-12 text-center" id="search-result-title"></div>
                           <div class="col-lg-10 col-lg-offset-1 col-md-12 text-center">
                               <div id="artist-results">
-                                             
-                                </div>
+                                <!-- Aritst Results will go here -->
+                              </div>
                             </div>
                         </div>
-                      </div><!-- end info event -->
+                      </div>
                   </section>
 
         <!-- TESTIMONIAL -->
         <section id="testimonial">
             <div class="container-fluid">
-
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 no-padding">
-                    <div class="testimonial-left">
-                      <div class="setlist-results">
-                        
-                      </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 no-padding">
+                  <div class="testimonial-left">
+                    <div class="setlist-results">
+                        <!-- Setlist Results will go here -->
                     </div>
                   </div>
-                    <!-- <div class="col-lg-6 col-lg-offset-6 col-md-6 col-md-offset-6 no-padding"> -->
-                      <div class="col-lg-6 col-md-6 no-padding">
-                        <div class="testimonial-right">
-                          <div id="processing"></div>
-                            <h2 class="hidden">testimonial</h2>
-                        
-                            <div id="testimonial-carousel">
-
-                                <div id="setlist-player" data-spotify-id="<%= user.spotify.id %>">
-                                  <div id="player">
-                            
-                                    </div>
-                                </div>
-                            </div>
-                        </div>   
-                    </div>
                 </div>
+                  <div class="col-lg-6 col-md-6 no-padding">
+                    <div class="testimonial-right">
+                      <div id="processing"></div>
+                        <h2 class="hidden">testimonial</h2>
+                        <div id="testimonial-carousel">
+                          <div id="setlist-player" data-spotify-id="<%= user.spotify.id %>">
+                            <div id="player">
+                              <!-- Spotify Player will go here -->
+                            </div>
+                          </div>
+                        </div>
+                    </div>   
+                  </div>
+              </div>
             </div>
         </section>
 
@@ -150,13 +80,12 @@
         <section id="photos">
             <div class="container wow fadeInUp">
                 <div class="row">
-                    
                     <div class="col-lg-12">
                         <h2 class="uppercase">Band Photos</h2>
-                        <p class="lead">These were the photos pulled from Flickr that matched the band you selected.</p>
+                        <!-- <p class="lead">These were the photos pulled from Flickr that matched the band you selected.</p> -->
                     </div> 
                     <ul id="photo-results" class="list-unstyled">
-                    
+                        <!-- This is where the photos pulled from Flickr will go -->
                     </ul>
                </div>
             </div><!-- end photos section -->
@@ -167,37 +96,31 @@
             <div class="infodata-inner">
                 <div class="container">
                     <div class="row">
-                        
                         <h2 class="hidden">funfacts</h2>
-                        
                         <div class="col-lg-10 col-lg-offset-1">
-                            <div id="infodata-carousel">
-                                
-                                <div class="item">
-                                    <!-- <i class="pe pe-4x pe-7s-world"></i> -->
-                                    <i class="pe pe-4x pe-7s-display2"></i>
-                                    <div class="desc">
-                                        <p class="number"> <%= user.spotify.savedPlaylists.length %></p>
-                                        <p class="description">Setlists</p>
-                                    </div>
+                          <div id="infodata-carousel">
+                            <div class="item">
+                                <i class="pe pe-4x pe-7s-display2"></i>
+                                <div class="desc">
+                                    <p class="number"> <%= user.spotify.savedPlaylists.length %></p>
+                                    <p class="description">Setlists</p>
                                 </div>
-                                
-                                <div class="item">
-                                    <i class="pe pe-4x pe-7s-micro"></i>
-                                    <div class="desc">
-                                        <p class="number">
-
-                                        <% var playlists = user.spotify.savedPlaylists %>
-                                        <% var songsLength = 0; %>
-                                          <% playlists.forEach(function(playlist){ %>
-                                              <% songsLength += playlist.indivSongs.length %>
-                                          <% }) %>
-                                        <%= songsLength %>
-                                        </p>
-                                        <p class="description">Songs</p>
-                                    </div>
+                            </div>                               
+                            <div class="item">
+                                <i class="pe pe-4x pe-7s-micro"></i>
+                                <div class="desc">
+                                    <p class="number">
+                                    <% var playlists = user.spotify.savedPlaylists %>
+                                    <% var songsLength = 0; %>
+                                      <% playlists.forEach(function(playlist){ %>
+                                          <% songsLength += playlist.indivSongs.length %>
+                                      <% }) %>
+                                    <%= songsLength %>
+                                    </p>
+                                    <p class="description">Songs</p>
                                 </div>
-                                
+                            </div> 
+                              <!-- Add additional details to Info panel here -->
                                <!--  <div class="item">
                                     <i class="pe pe-4x pe-7s-clock"></i>
                                    
@@ -206,7 +129,6 @@
                                         <p class="description">minutes  </p>
                                     </div>
                                 </div> -->
-                                
                                <!--  <div class="item">
                                     <i class="pe pe-va pe-4x pe-7s-id"></i>
                                     <div class="desc">
@@ -220,220 +142,113 @@
                 </div>
             </div><!-- end info data section -->
         </section>    
-        
-        <!-- SETLISTS SECTION-->
+      
+        <!-- SAVED SETLISTS SECTION-->
         <section id="concerts">
             <div class="container">
-                <div class="row">
-                
-                    <div class="col-lg-12">
-                    
-                        <h2 class="uppercase">SETLISTS</h2>
-                        <p class="lead">Here are your saved setlists.</p>
+              <div class="row">
+                <div class="col-lg-12">
+                  <h2 class="uppercase">SETLISTS</h2>
+                  <p class="lead">Here are your saved setlists.</p>
+                  <hr class="black">
+                  
+                  <!-- CONTENT -->    
+                  <div id="myTabContent" class="tab-content">  
+                    <div role="tabpanel" class="tab-pane fade active in" 
+                          id="day1" aria-labelledby="day1-tab">
+                        <div class="panel-group" id="accordion1" role="tablist" 
+                              aria-multiselectable="true">
                         
-                        
-                        <ul id="myTab" class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#day1" id="day1-tab" role="tab" data-toggle="tab" aria-controls="day1" aria-expanded="true">YOUR SAVED PLAYLISTS</a></li>
-              
-                        </ul>
-                        
-                        <!-- CONTENT -->    
-                        <div id="myTabContent" class="tab-content">
+                         <% var playlists = user.spotify.savedPlaylists %>
+                           <% playlists.forEach(function(playlist, i){ %>
+
+                            <div class="panel panel-default setlist-panel" 
+                                data-playlist-id="<%= playlist.playlistId %>">
                             
-                            
-                            <div role="tabpanel" class="tab-pane fade active in" id="day1" aria-labelledby="day1-tab">
-                                <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
-                                
+                                <!-- Program Heading -->
+                                <div class="panel-heading" role="tab" id="heading<%= i %>">
                                    
-                                 <% var playlists = user.spotify.savedPlaylists %>
-                                   <% playlists.forEach(function(playlist, i){ %>
-
-                                    <div class="panel panel-default setlist-panel" data-playlist-id="<%= playlist.playlistId %>">
-                                    
-                                        <!-- Program Heading -->
-                                        <div class="panel-heading" role="tab" id="heading<%= i %>">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-2 col-md-2 col-sm-2">
-                                                
-                                                <p class="date"><%= playlist.date %></p>
-                                                </div>
-                                                
-                                                <div class="col-lg-8 col-md-8 col-sm-8">
-                                                    
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#Program<%= i %>" aria-expanded="true" aria-controls="Program<%= i %>">
-                                                       <%= playlist.artist + " - " + playlist.venue %>
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                                <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <button class="btn delete-btn">DELETE</button>
-                                                </div>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-2">
+                                        
+                                        <p class="date"><%= playlist.date %></p>
                                         </div>
-                                    
-                                        <div id="Program<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= i %>">
-                                            <!-- Program Content -->
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <!-- was col-lg-2..etc -->
-                                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                    
-
-                                                        <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A<%= user.spotify.id %>%3Aplaylist%3A<%= playlist.playlistId %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-                                                        
-                                                    </div>
-                                                    
-                                                    <div class="col-lg-7 col-md-7 col-sm-10">
-                                                      <!-- <p class="speaker-name uppercase"><%= playlist.artist %></p> -->
-                                                        <h4><%= playlist.venue %> + <%= playlist.date %></h4>
-                                                        <div class='zebra-saved'>
-                                                        <% for(j = 0; j < playlist.indivSongs.length; j++) { %>
-                                                                        
-                                                            <span class='song-name'><%= playlist.indivSongs[j] %></span>
-                                                                        
-                                                        <% } %>
-                                
-                                                        </div>                                                    
-                                                        <p><i class="fa fa-lg fa-clock-o"></i> <span class="small"><%= playlist.indivSongs.length %> Songs</span></p>
-                                                        <p><i class="fa fa-lg fa-map-marker"></i> <span class="small"><%= playlist.venue %></span></p>
-                                                        
-                                                    </div>
-                                                </div>
+                                        
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#Program<%= i %>" aria-expanded="true" aria-controls="Program<%= i %>">
+                                               <%= playlist.artist + " - " + playlist.venue %>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <button class="btn delete-btn">DELETE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div id="Program<%= i %>" class="panel-collapse collapse" 
+                                    role="tabpanel" aria-labelledby="heading<%= i %>">
+                                    <!-- Program Content -->
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">                            
+                                                <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A<%= user.spotify.id %>%3Aplaylist%3A<%= playlist.playlistId %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                                            </div>                                            
+                                            <div class="col-lg-7 col-md-7 col-sm-10">
+                                              <h4><%= playlist.venue %> + <%= playlist.date %></h4>
+                                              <ul class='zebra saved'>
+                                                <% for(j = 0; j < playlist.indivSongs.length; j++) { %>             
+                                                    <li class='song-name'><%= playlist.indivSongs[j] %></li>           
+                                                <% } %>
+                                              </ul>                                                    
+                                              <p><i class="fa fa-lg fa-clock-o"></i> 
+                                              <span class="small"><%= playlist.indivSongs.length %> Songs</span></p>
+                                              <p><i class="fa fa-lg fa-map-marker"></i> 
+                                              <span class="small"><%= playlist.venue %></span></p>      
                                             </div>
                                         </div>
                                     </div>
-                                  
-                                    <% }) %>
-                                    
                                 </div>
-                            </div> <!-- end inv setlist tab -->
+                            </div>
+                          
+                            <% }) %>
+                            
                         </div>
-                    </div>
+                    </div> <!-- end inv setlist tab -->
+                  </div>
                 </div>
+              </div>
             </div><!-- end setlists section -->
         </section>    
 
         <!-- FOOTER -->        
         <footer id="footer">
           <div class="container">
-              <div class="row">
-                  
-                    <div class="col-lg-6 col-md-6 col-sm-12 footer-logo">
-                      <!-- <h4 class="uppercase">FOLLOW US</h4> -->
-                        <a href="/"><img src="img/logo.png" alt="logo" height="40"></a>
-                        <p class="small">reLive - The Concert Experience</p>
-                        <p class=""></p>
-                       <!--  <ul class="list-unstyled list-inline uppercase">
-                            <li><a href="#"><i class="fa fa-lg fa-spotify"></i></a></li>
-                            <li><a href="#"><i class="fa fa-lg fa-flickr"></i></a></li>
-                            <li><a href="#"><i class="fa fa-lg fa-github"></i></a></li>
-                            <li><a href="#"><i class="fa fa-lg fa-linkedin"></i></a></li>
-                        </ul> -->
-                    </div>
-                    
-                    <div class="col-lg-6 col-md-6 col-sm-12 footer-apis">
-                      <!-- <h4 class="uppercase">FAQ</h4> -->
-                      <p class="small">Made with APIs from:</p> 
-                      <ul class="list-unstyled list-inline uppercase">
-                          <li><a href="https://www.spotify.com" target="_blank"><i class="fa fa-lg fa-spotify"></i> Spotify</a></li>
-                          <li><a href="https://www.flickr.com" target="_blank"><i class="fa fa-lg fa-flickr"></i> Flickr</a> </li>
-                          
-          
-                          <!-- <li><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-lg fa-linkedin"></i> LinkedIn</a></li> -->
-                      </ul>
-                      <ul class="list-unstyled list-inline uppercase">
-                          <li><a href="https://www.last.fm" target="blank"><i class="fa fa-lg fa-lastfm"></i> Last.fm</a> </li>
-                          <li><a href="https://www.setlist.fm" target="blank"><i class="fa fa-lg fa-music"></i> Setlist.fm</a> </li>
-                      </ul>
-                       <!--  <p class="small">Made with APIs from: 
-                        <p class="small">Last.fm</p>
-                        <p class="small">Flickr</p>
-                        <p class="small">Setlist.fm</p>
-                        <p class="small">Spotify</p> -->
-                        
-                        <!-- <dl class="faqs">
-                          <dt>This the first question!</dt>
-                          <dd class="small">- This is the first answer.</dd>
-                        
-                          <dt>This the second question!</dt>
-                          <dd class="small">- This is the second answer.</dd>
-                        
-                          <dt>This the third question!</dt>
-                          <dd class="small">- This is the third answer.</dd>
-                            
-                            <dt>This the fourth question!</dt>
-                          <dd class="small">- This is the fourth answer.</dd>
-                        </dl> -->
-                  </div>
-                    
-                    
-                    <!-- <div class="col-lg-6 col-md-6 col-sm-12">
-                      <h4 class="uppercase">newsletter</h4>
-                        
-                        <div class="row">
-                            <div class="col-lg-8"> 
-                                <input type="email" id="newsletter_email">
-                            </div> 
-                            <div class="col-lg-4">     
-                              <button class="button button-big button-line-light" onClick="newsletter_send();">subscribe</button>
-                            </div>
-                        </div>
-                        
-                        <p class="small">Subscribe to our monthly newsletter. Stay on the groove!</p>
-                  </div> -->
+              <div class="row">         
+                <div class="col-lg-6 col-md-6 col-sm-12 footer-logo">
+                  <a href="/"><img src="img/logo.png" alt="logo" height="40"></a>
+                  <p class="small">reLive - The Concert Experience</p>
+                  <p class=""></p>
+                </div> 
+                <div class="col-lg-6 col-md-6 col-sm-12 footer-apis">
+                  <p class="small">Made with APIs from:</p> 
+                  <ul class="list-unstyled list-inline uppercase">
+                      <li><a href="https://www.spotify.com" target="_blank">
+                      <i class="fa fa-lg fa-spotify"></i> Spotify</a></li>
+                      <li><a href="https://www.flickr.com" target="_blank">
+                      <i class="fa fa-lg fa-flickr"></i> Flickr</a> </li>
+                  </ul>
+                  <ul class="list-unstyled list-inline uppercase">
+                      <li><a href="https://www.last.fm" target="blank">
+                      <i class="fa fa-lg fa-lastfm"></i> Last.fm</a> </li>
+                      <li><a href="https://www.setlist.fm" target="blank">
+                      <i class="fa fa-lg fa-music"></i> Setlist.fm</a> </li>
+                  </ul>
+                </div>
               </div>
             </div><!-- /end footer section -->
         </footer>
-        
-        
-        <!-- SUBFOOTER -->
-        <!-- <div class="subfooter">
-          <div class="container">
-                <div class="row">
-                    
-                    <div class="col-lg-12">
-                        <ul class="list-unstyled list-inline pull-right uppercase">
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Press Kit</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- end subfooter section -->               
-               
-               
-               
-        <!-- JAVASCRIPT FILES -->
-        
-        
-        <script src="js/jquery-1.11.1.min.js"></script>        
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
-        <!-- <script type="js/ajax-loading.js"></script> -->
-        <script src="js/main.js"></script>
-        <script src="js/wow.min.js"></script>        
-        <script src="js/jquery.cbsnet.tools.min.js"></script>
-        <script src="js/jquery.cbsnet.revolution.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <!-- <script src="js/grid-data-columns.js"></script> -->
-        <script src="js/jquery.countdown.js"></script>
-        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="js/waypoints.min.js"></script>
-        <script src="js/jquery.counterup.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>        
-        <script src="js/plugins.js"></script><!-- end javascript files -->
-        
-        <!-- ANIMATION ON SCROLLING -->
-        <script>
-              new WOW().init();
-        </script>
-        
-  </body>
-</html>
+
+<% include partials/footer.html %>

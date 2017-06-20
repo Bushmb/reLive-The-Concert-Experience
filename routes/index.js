@@ -45,6 +45,7 @@ router.get('/auth/spotify',
     // function will not be called.
 });
 
+
 // GET /auth/spotify/callback
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request. If authentication fails, the user will be redirected back to the
@@ -53,19 +54,16 @@ router.get('/auth/spotify',
 router.get('/callback',
     passport.authenticate('spotify', { failureRedirect: '/login' }),
     function(req, res) {
-    console.log("SPOTIFY REDIRECT REQ OBJECT", req.user);
     res.redirect('/users/');
   });
 
 router.get('/users', isLoggedIn, function(req, res) {
-    console.log("REQ USER" + req.user);
     res.render('search.html', { user: req.user });
 });
 
 module.exports = router;
 
 function isLoggedIn(req, res, next) {
-    console.log("middleware hit")
     if (req.isAuthenticated())
       return next();
     res.redirect('/');

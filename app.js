@@ -20,7 +20,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var search = require('./routes/search');
 var photos = require('./routes/photos');
-// var artist = require('./routes/artist');
 
 var configDB = require('./config/database.js');
 
@@ -37,7 +36,6 @@ var app = express();
 app.engine('.html', require('ejs').__express);
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html')
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -57,7 +55,6 @@ require('./config/passport')(passport);
 
 app.use('/', routes);
 app.use('/users', isLoggedIn, users);
-// put middleware to check auth
 app.use('/search', isLoggedIn, search);
 // app.use('/artist', artist);
 app.use('/photos', isLoggedIn, photos);
@@ -101,7 +98,6 @@ setInterval(function() {
 module.exports = app;
 
 function isLoggedIn(req, res, next) {
-  console.log("middleware hit")
   if (req.isAuthenticated())
       return next();
   res.redirect('/');

@@ -13,11 +13,11 @@ router.get('/:artistName', function(req, res, next)	{
 		name = req.body.artistName;
 	}
 
-	console.log("ARTIST NAME TO GO TO FLICKR", artistName);
+	const url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="
+				 + flickr_api + "&text=" + artistName + 
+				 "+stage+concert&license=1&sort=relevance&content_type=1&media=photos" +
+				 "&per_page=20&format=json&nojsoncallback=1";
 
-	const url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + flickr_api + "&text=" + artistName + "+stage+concert&license=1&sort=relevance&content_type=1&media=photos&per_page=20&format=json&nojsoncallback=1";
-
-	console.log("FLICKR URL", url);	
 	const request = require("request");
 	const async = require("async");
 
@@ -27,11 +27,13 @@ router.get('/:artistName', function(req, res, next)	{
 		const photoList = data.photos.photo;
 
 		async.eachSeries(photoList, function(photoList, callback) {
-			
-			console.log("FLICKR DATA", photoList);
-
-			const photoResultUrl = "https://farm" + photoList.farm + ".static.flickr.com/" + photoList.server + "/"+photoList.id + "_"+photoList.secret + "_b.jpg";
-			const thumbnailUrl = "https://farm" + photoList.farm + ".static.flickr.com/" + photoList.server + "/"+photoList.id + "_"+photoList.secret + "_n.jpg";
+		
+			const photoResultUrl = "https://farm" + photoList.farm + ".static.flickr.com/" 
+									+ photoList.server + "/"+photoList.id + "_" 
+									+ photoList.secret + "_b.jpg";
+			const thumbnailUrl = "https://farm" + photoList.farm + ".static.flickr.com/" 
+									+ photoList.server + "/"+photoList.id + "_"
+									+ photoList.secret + "_n.jpg";
 			const id = photoList.id
 
 			const photoInfo = {
@@ -46,9 +48,7 @@ router.get('/:artistName', function(req, res, next)	{
 		},
 
 		function(err) {
-			//console.log('hit da route');
-			//console.log(results);
-
+	
 			res.json(results);
 			
 		});
