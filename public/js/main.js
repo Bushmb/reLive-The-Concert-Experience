@@ -358,7 +358,7 @@ function addSavedListToDOM(playlistId, venue, date, artistName, indivSongs, spot
 
 	let toAppend = '';
 	let songHTML = '';
-
+	
 	indivSongs.forEach(function(song) {
 		songHTML += `<li class='song-name'>${song}</li>`;
 	});
@@ -380,7 +380,7 @@ function addSavedListToDOM(playlistId, venue, date, artistName, indivSongs, spot
                 		width='300' height='380' frameborder='0' allowtransparency='true'></iframe>
                 </div><div class='col-lg-7 col-md-7 col-sm-10'>
                 <p class='speaker-name uppercase'>${artistName}</p>
-                <h4>${venue} + ${date}</h4> 
+                <h4>${venue} - ${date}</h4> 
                 	<ul class='zebra saved'>${songHTML}</ul>
                 <p><i class='fa fa-lg fa-clock-o'></i> 
                 	<span class='small'>${indivSongs.length} Songs</span></p> 
