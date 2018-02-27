@@ -6,9 +6,12 @@ var async = require('async');
 
 var User = require('../models/user');
 
-
-
-/* GET aritsts listings from lastfm */
+/*	GET aritsts listings from last.fm
+	by using the last.fm api, reLive is able to get the
+ 	musicbrains id (mbid) which is utilized across the web 
+ 	as the foremost method to track musical artists.  Using
+ 	last.fm also enables the most releveant artists to appear first
+ 	in the search results */
 
 router.get('/:name', function(req, res, next)	{
 

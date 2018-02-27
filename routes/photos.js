@@ -3,6 +3,9 @@
 var express = require('express');
 var router = express.Router();
 
+// Using the Flickr API to pull photos related the musical artist or band
+// which was selected
+
 router.get('/:artistName', function(req, res, next)	{
 
 	const artistName = req.params["artistName"];
