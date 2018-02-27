@@ -24,10 +24,10 @@ Then open [`localhost:8080`](http://localhost:8080) in a browser if a window is 
 <p>reLive was built out of my love for music and concerts. reLive allows you to see what songs your favorite musical artists are playing at their concerts and listen to the setlist long after the show. My most ambitious project to date, reLive uses 4 different APIs to get concert data, photos of the musician, and setlists which you can then listen to and save to your spotify account.</p>
 
 <h2>How it Works</h2>
-<h3>Search for a musical Artist</h3>
+<h3>Search for a Band or Musical Artist</h3>
 <p>Choose a musical artist, any musical artist.  Once you type it into the search bar, reLive uses Last.Fm to pull up the most relevent artists related to your search with the most likely artist listed first.  By clicking one of the artists buttons below the search, reLive uses Setlist.fm to find the most recent concerts played by that musician</p>
 
-<h3>Choosing a concert</h3>
+<h3>Choosing a Concert</h3>
 <p>Below the search field, reLive presents a list of the most recent concerts played by the band of musical artist you have selected.  You are given the option to play or save the setlist.  By choosing the play setlist button, a spotify widget is loaded with as many of the songs as could be found using Spotify's API.  Not every artist is on Spotify, nor is every song.  If songs are not loaded into the playlist, it may mean the name is incorrrect, or the song being played is a cover of another song.</p>
 
 <h3>Saving Setlists</h3>
