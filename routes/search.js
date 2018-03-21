@@ -73,23 +73,33 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 		mbid = req.body.mbid;
 	}
 
-	const url = "http://api.setlist.fm/rest/0.1/search/setlists.json?artistMbid=" + mbid;
+	const setlistApiKey = process.env.SETLISTFM_API_KEY;
+
+	const url = "https://api.setlist.fm/rest/1.0/search/setlists?artistMbid=" + mbid;
 
 	const request = require("request");
 	const async = require("async");
-	request(url, function(error, response, body) {
+
+	const options = {
+		url,
+		headers: {
+			Accept: 'application/json',
+			'x-api-key': setlistApiKey
+		}
+	}
+	request(options, function(error, response, body) {
 		
 		if(!body.includes('not found')) {
 
 			const data = JSON.parse(body);
-			const setlist = data.setlists.setlist;
+			const setlist = data.setlist;
 
 			async.eachSeries(setlist, function(setlist, callback) {
-				const id = setlist["@id"];
-				const eventDate = setlist["@eventDate"];
-				const venueName = setlist.venue["@name"];
-				const artistName = setlist.artist["@name"];
-				const artistMbid = setlist.artist["@mbid"];
+				const id = setlist["id"];
+				const eventDate = setlist["eventDate"];
+				const venueName = setlist.venue["name"];
+				const artistName = setlist.artist["name"];
+				const artistMbid = setlist.artist["mbid"];
 				const sets = setlist.sets.set;
 				
 				let songs;
@@ -102,7 +112,7 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 							// map over all songs and return song name
 							if(Array.isArray(set.song)) {
 								const songArray = set.song.map(function(song) {
-									return song["@name"];
+									return song["name"];
 								});
 								arr = arr.concat(songArray);							
 							}
@@ -116,13 +126,13 @@ router.get('/setlists/:mbid', function(req, res, next)  {
 						// if sets.song is an array
 						if(Array.isArray(sets.song)) {
 							songs = sets.song.reduce(function(arr, song){
-								arr.push(song["@name"]);
+								arr.push(song["name"]);
 								return arr;
 							}, []);
 						}
 						// else we just get the single song
 						else {
-							songs = sets.song["@name"];
+							songs = sets.song["name"];
 						}
 						
 						
@@ -220,17 +230,17 @@ router.post("/playlist", function(req, res) {
 	// All tasks are done now
 	// testing to see if user is logged in as user or with spotify authorization
 
-		var testingUser = req.user;
+		// var testingUser = req.user;
 
-		if(testingUser.local.email){
-		    console.log("yes, i have that LOCAL property");
-		    console.log("LOCAL USER DETAILS!!", req.user);
-		}
+		// if(testingUser.local.email){
+		//     console.log("yes, i have that LOCAL property");
+		//     console.log("LOCAL USER DETAILS!!", req.user);
+		// }
 		
-		else if(testingUser.spotify.id){
-			console.log("yes, i have that SPOTIFY property")
-			console.log("SPOTIFY USER DETAILS!!", req.user);
-		}
+		// else if(testingUser.spotify.id){
+		// 	console.log("yes, i have that SPOTIFY property")
+		// 	console.log("SPOTIFY USER DETAILS!!", req.user);
+		// }
 
 		var playlistLength = new Date(songDuration);
 		var playlistMinutes = playlistLength.getMinutes();
